@@ -19,7 +19,7 @@ export const BentoGrid = ({
     return (
         <div
             className={cn(
-                "grid md:auto-rows-[15rem] grid-cols-1 md:grid-cols-5 gap-6 max-w-7xl mx-auto ",
+                "grid md:auto-rows-[6rem] grid-cols-1 md:grid-cols-5 gap-6 max-w-7xl mx-auto ",
                 className
             )}
         >
@@ -117,7 +117,7 @@ export const BentoGridItem = ({
 
                     {id===6 && (
                         <div className="mt-5 relative">
-                            <div onClick={handleCopy} className={`absolute -bottom-5 right-0`}>
+                            <div onClick={handleCopy} className={`absolute lg:-bottom-16 md:-bottom-24 -bottom-12 right-0`}>
                                 <Lottie options={{
                                     loop:copied,
                                     autoplay: copied,
