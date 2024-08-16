@@ -2,6 +2,7 @@
   "name": "next-framer-portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://czampath.github.io/next-framer-portfolio/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
