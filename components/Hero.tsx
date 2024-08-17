@@ -22,8 +22,8 @@ const Hero = () => {
                         <h2 className='uppercase tracking-widest text-xs text-center text-blue-100 max-w-80'>Dynamic Web Magic</h2>
                         <TextGenerateEffect 
                         className="text-center text-[40px] md:text-5xl lg:text-6xl select-none"
-                        words='Transforming Concepts into seemless User Experiences'/>
-                        <p className='text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl select-none'>Hi, I'm Chathuranga, a Full-stack developer based in Sri lanka</p>
+                        words='Crafting Innovation into Impactful Digital Experiences'/>
+                        <p className='text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl select-none'>A full-stack developer from <span className='text-purple'>Sri Lanka</span> engineering robust solutions with a strong foundation in back-end development, paired with cutting-edge front-end design</p>
                         <a href='#about'>
                             <MagicButton 
                             title="Show My Work"
