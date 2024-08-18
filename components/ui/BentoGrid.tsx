@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBG";
 import { GlobeDemo } from "./GridGlobe";
 import Lottie from "react-lottie";
-import { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import animationData from '@/data/confetti.json'
 import MagicButton from "./MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
@@ -56,7 +56,7 @@ export const BentoGridItem = ({
         navigator.clipboard.writeText("csampath.work@gmail.com")
         setCopied(true)
     }
-    
+
     return (
         <div
             className={cn(
@@ -81,14 +81,34 @@ export const BentoGridItem = ({
                 <div className={cn(
                     titleClassName, 'group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col p-5 lg:p-7 lg:pt-4'
                 )}>
-                    <div className="font-sans font-extralight text-[#c1c2c3] text-sm md:text-xs lg:text-base z-10 select-none">
-                        {description}
-                    </div>
-                    <div className="font-sans font-bold text-lg lg:text-xl max-w-96 z-10 pt-0 select-none">
-                        {title}
-                    </div>
+                    {id === 2 ?
+                        <>
+                            <div className="font-sans font-bold text-lg lg:text-xl max-w-96 z-10 pt-0 select-none">
+                                {title}
+                            </div>
+                            <div className="font-sans font-extralight text-[#c1c2c3] text-sm md:text-xs lg:text-base z-10 select-none">
+                                {description}
+                            </div>
+                        </> :
+                        <>
+                            <div className="font-sans font-extralight text-[#c1c2c3] text-sm md:text-xs lg:text-base z-10 select-none">
+                                {description}
+                            </div>
+                            <div className="font-sans font-bold text-lg lg:text-xl max-w-96 z-10 pt-0 select-none">
+                                {title}
+                            </div>
+                        </>}
 
-                    {id === 2 && <GlobeDemo />}
+
+                    {id === 2 &&
+                        <>
+                            {/* {globeUnlocked !== true && trollCountRef.current < 1 && (
+                                <div onClick={handleFirstFunClicks} className="absolute w-full h-full z-30 flex"></div>
+                            )} */}
+                            <Blocker />
+                            <GlobeDemo />
+                        </>
+                    }
                     {id === 3 && (
                         <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
                             <div className="flex flex-col gap-2 lg:gap-1">
@@ -115,21 +135,21 @@ export const BentoGridItem = ({
                         </div>
                     )}
 
-                    {id===6 && (
+                    {id === 6 && (
                         <div className="mt-5 relative">
                             <div onClick={handleCopy} className={`absolute lg:-bottom-16 md:-bottom-24 -bottom-12 right-0`}>
                                 <Lottie options={{
-                                    loop:copied,
+                                    loop: copied,
                                     autoplay: copied,
                                     animationData,
                                     rendererSettings: {
                                         preserveAspectRatio: 'xMidYMid slice'
                                     }
-                                }}/>
+                                }} />
                             </div>
-                            <MagicButton 
+                            <MagicButton
                                 title={copied ? "Email Copied" : "Copy my Email"}
-                                icon={<IoCopyOutline/>}
+                                icon={<IoCopyOutline />}
                                 position="left"
                                 otherClasses="`bg-[#161831]"
                                 handleClick={handleCopy}
@@ -141,3 +161,70 @@ export const BentoGridItem = ({
         </div>
     );
 };
+
+const Blocker = () => {
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const [globeUnlocked, setGlobeUnlocked] = useState(false);
+    const [clickCount, setClickCount] = useState(0)
+    const [clear, setClear] = useState(false)
+    const [blurred, setBlurred] = useState(false)
+
+    const fnClick = () => {
+        setClickCount((count) => {
+            if( (count >= 19 && count < 22 ) ||
+            (count >= 29 && count < 34 ) ||
+            (count >= 34 && count < 39 ) ||
+            (count >= 44 ) ){
+                setBlurred(true)
+            }else{
+                setBlurred(false)
+            }
+            return count = count + 1
+        })
+
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current)
+        }
+
+        timeoutRef.current = setTimeout(() => {
+            if (clickCount >= 29) {
+                setGlobeUnlocked(true)
+                setClear(true)
+                setTimeout(() => {
+                    setClear(false)
+                }, 1500)
+            }
+        }, 4000)
+    }
+
+    return (
+        <>
+            {globeUnlocked !== true && (
+                <div onClick={fnClick} className={`absolute ${blurred === true ? "bg-black-200  backdrop-filter backdrop-blur-lg saturate-150 bg-opacity-75" : ""} transition-all duration-700 lg:-ml-8 -mt-4 p-5 -ml-6 w-full h-full z-30 flex justify-center items-center`}>
+                    <div className="z-40">
+
+                    {clickCount > 3 && clickCount < 7 && (<div className="pt-20">Try Harder</div>)}
+                    {clickCount >= 9 && clickCount < 13 && (<div className="pt-12 text-5xl">Harder!</div>)}
+                    {clickCount >= 15 && clickCount < 18 && (<div className="pt-20">Looks like nothing's happening right?</div>)}
+                    {clickCount >= 20 && clickCount < 23 && (<div className="pt-10 font-sans font-extralight">Yes progress at times is unnoticable, doesn't mean you should stop trying</div>)}
+                    {clickCount >= 30 && clickCount < 40 &&(<div className="pt-10"> Good! Now don't forget to <span className="text-purple"> take a break </span> time to time!<br></br> Its as crucial as <span className="text-purple">you trying hard</span></div>)}
+                    {clickCount >= 35 && clickCount < 40 &&(<div className="text-xl font-bold">Yeah you may stop now</div>)}
+                    {clickCount >= 45 && (<div className="text-2xl font-bold">For christ's sake, CUT IT OUT!</div>)}
+                    </div>
+                </div>
+            )}
+            {clear === true && (
+                <div className="w-full h-full flex items-center justify-center z-30">
+                    <Lottie options={{
+                        loop: false,
+                        autoplay: true,
+                        animationData,
+                        rendererSettings: {
+                            preserveAspectRatio: 'xMidYMid slice'
+                        }
+                    }} />
+                </div>
+            )}
+        </>
+    )
+}

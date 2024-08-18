@@ -18,8 +18,8 @@ export const gridItems = [
   },
   {
     id: 2,
-    title: "I'm very flexible with time zone communications",
-    description: "",
+    title: "Flexible with adjusting work hours to accommodate different time zones",
+    description: "Tip: Give this globe a spin and witness the magic!",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
     titleClassName: "justify-start",
