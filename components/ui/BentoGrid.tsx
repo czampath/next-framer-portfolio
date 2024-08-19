@@ -81,18 +81,23 @@ export const BentoGridItem = ({
                 <div className={cn(
                     titleClassName, 'group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col p-5 lg:p-7 lg:pt-4'
                 )}>
-                    {id === 2 ?
+                    {id === 5 ?
                         <>
-                            <div className="font-sans font-bold text-lg lg:text-xl max-w-96 z-10 pt-0 select-none">
+                            <div className="w-[60%] font-sans font-bold text-lg lg:text-xl max-w-96 z-10 pt-0 select-none">
                                 {title}
                             </div>
-                            <div className="font-sans font-extralight text-[#c1c2c3] text-sm md:text-xs lg:text-base z-10 select-none">
+                            <div className="w-[60%] font-sans font-extralight text-[#c1c2c3] text-sm md:text-xs lg:text-base z-10 select-none">
                                 {description}
                             </div>
                         </> :
-                        <>
-                            <div className="font-sans font-extralight text-[#c1c2c3] text-sm md:text-xs lg:text-base z-10 select-none">
-                                {description}
+                        <div className="flex justify-between pr-4">
+                            <div className="flex flex-col">
+                                <div className="font-sans font-extralight text-[#c1c2c3] text-sm md:text-xs lg:text-base z-10 select-none">
+                                    {description}
+                                </div>
+                                <div className="font-sans font-bold text-lg lg:text-xl max-w-96 z-10 pt-0 select-none">
+                                    {title}
+                                </div>
                             </div>
                             <div className="font-sans font-bold text-lg lg:text-xl max-w-96 z-10 pt-0 select-none">
                                 {title}
@@ -100,11 +105,24 @@ export const BentoGridItem = ({
                         </>}
 
 
-                    {id === 2 &&
+                    {id === 4 &&
                         <>
-                            {/* {globeUnlocked !== true && trollCountRef.current < 1 && (
-                                <div onClick={handleFirstFunClicks} className="absolute w-full h-full z-30 flex"></div>
-                            )} */}
+                            <Lottie
+                                options={
+                                    {
+                                        loop: true,
+                                        autoplay: true,
+                                        animationData: searchAnimationData,
+                                        rendererSettings: {
+                                            preserveAspectRatio: 'xMidYMid slice'
+                                        }
+                                    }
+                                }
+                            />
+                        </>
+                    }
+                    {id === 5 &&
+                        <>
                             <Blocker />
                             <GlobeDemo />
                         </>
@@ -171,12 +189,12 @@ const Blocker = () => {
 
     const fnClick = () => {
         setClickCount((count) => {
-            if( (count >= 19 && count < 22 ) ||
-            (count >= 29 && count < 34 ) ||
-            (count >= 34 && count < 39 ) ||
-            (count >= 44 ) ){
+            if ((count >= 19 && count < 24) ||
+                (count >= 29 && count < 34) ||
+                (count >= 34 && count < 39) ||
+                (count >= 44)) {
                 setBlurred(true)
-            }else{
+            } else {
                 setBlurred(false)
             }
             return count = count + 1
@@ -190,31 +208,31 @@ const Blocker = () => {
             if (clickCount >= 29) {
                 setGlobeUnlocked(true)
                 setClear(true)
-                setTimeout(() => {
-                    setClear(false)
-                }, 1500)
             }
-        }, 4000)
+        }, 5000)
     }
 
     return (
         <>
             {globeUnlocked !== true && (
-                <div onClick={fnClick} className={`absolute ${blurred === true ? "bg-black-200  backdrop-filter backdrop-blur-lg saturate-150 bg-opacity-75" : ""} transition-all duration-700 lg:-ml-8 -mt-4 p-5 -ml-6 w-full h-full z-30 flex justify-center items-center`}>
-                    <div className="z-40">
+                <div onClick={fnClick} className={`absolute ${blurred === true ? "bg-black-200  backdrop-filter backdrop-blur-lg saturate-150 bg-opacity-75" : ""} transition-all duration-700 lg:-ml-10 md:-mt-5 lg:-mb-7 p-5 -ml-6 md:-ml-8 w-[105%] h-[105%] z-30 flex `}>
+                    <div className="lg:pt-0 md:pt-[50%] md:pr-0 z-40 w-full flex flex-col justify-start pr-10">
 
-                    {clickCount > 3 && clickCount < 7 && (<div className="pt-20">Try Harder</div>)}
-                    {clickCount >= 9 && clickCount < 13 && (<div className="pt-12 text-5xl">Harder!</div>)}
-                    {clickCount >= 15 && clickCount < 18 && (<div className="pt-20">Looks like nothing's happening right?</div>)}
-                    {clickCount >= 20 && clickCount < 23 && (<div className="pt-10 font-sans font-extralight">Yes progress at times is unnoticable, doesn't mean you should stop trying</div>)}
-                    {clickCount >= 30 && clickCount < 40 &&(<div className="pt-10"> Good! Now don't forget to <span className="text-purple"> take a break </span> time to time!<br></br> Its as crucial as <span className="text-purple">you trying hard</span></div>)}
-                    {clickCount >= 35 && clickCount < 40 &&(<div className="text-xl font-bold">Yeah you may stop now</div>)}
-                    {clickCount >= 45 && (<div className="text-2xl font-bold">For christ's sake, CUT IT OUT!</div>)}
+                        {clickCount > 3 && clickCount < 7 && (<div className="lg:pt-[30%] md:pt-[75%] md:text-center md:pr-0 text-right pt-20 w-full">Try Harder</div>)}
+                        {clickCount >= 9 && clickCount < 13 && (<div className="lg:pt-[30%] md:pt-[75%] md:text-center md:pr-0 text-right pt-12 text-3xl w-full">Harder!</div>)}
+                        {clickCount >= 15 && clickCount < 18 && (<div className="lg:pt-[30%] md:pt-[75%] md:text-center md:pr-0 text-right pt-28 w-full">Looks like nothing's happening right?</div>)}
+                        {clickCount >= 20 && clickCount < 25 && (<div className="lg:pt-[30%] md:pt-[25%] md:text-center md:pr-0 text-right pt-1 text-xl font-sans font-extralight">Yes, progress at times go unnoticable, it doesn't mean you should stop trying</div>)}
+                        {clickCount >= 22 && clickCount < 25 && (<div className="md:pt-10 md:text-center md:pr-0 text-right text-lg pt-0  font-sans font-light">Every</div>)}
+                        {clickCount >= 23 && clickCount < 25 && (<div className="md:pt-0 md:text-center md:pr-0 text-right text-xl font-sans font-normal">Click</div>)}
+                        {clickCount >= 24 && clickCount < 25 && (<div className="md:pt-0 md:text-center md:pr-0 text-right  text-2xl font-sans font-bold">Counts!</div>)}
+                        {clickCount >= 30 && clickCount < 40 && (<div className="md:pt-[50%] md:text-start text-right pt-10"> But don't forget to <span className="text-purple"> Take a break </span> here and there! <br></br> Its as crucial as <span className="text-purple"> Trying Hard</span></div>)}
+                        {clickCount >= 35 && clickCount < 40 && (<div className=" text-xl font-bold md:text-start text-right">Yeah you may stop now</div>)}
+                        {clickCount >= 45 && (<div className="md:pt-[30%] text-2xl font-bold md:text-start text-right ">For christ's sake, CUT IT OUT!</div>)}
                     </div>
                 </div>
             )}
             {clear === true && (
-                <div className="w-full h-full flex items-center justify-center z-30">
+                <div className="absolute w-full h-full flex items-center justify-center z-1">
                     <Lottie options={{
                         loop: false,
                         autoplay: true,

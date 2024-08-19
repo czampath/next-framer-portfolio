@@ -49,13 +49,13 @@ export const gridItems = [
 
   {
     id: 5,
-    title: "Currently building a JS Animation library",
-    description: "The Inside Scoop",
+    title: "Flexible with adjusting work hours to accommodate different time zones",
+    description: "Tip: Give this globe a spin and witness the magic!",
     className: "md:col-span-3 md:row-span-5",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
     titleClassName: "justify-center md:justify-start lg:justify-end",
-    img: "./b5.svg",
-    spareImg: "./grid.svg",
+    img: "",
+    spareImg: "",
   },
   {
     id: 6,
