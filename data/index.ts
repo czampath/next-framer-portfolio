@@ -90,6 +90,24 @@ export const projects = [
     linkType: "repo",
     link: "https://github.com/czampath/fantech-rgb-cli",
   },
+  {
+    id: 3,
+    title: "Futuristic Dev Showcase: Next.js",
+    des: "Harnessing the power of Next.js and Aceternity UI to deliver a sleek, futuristic portfolio with cutting-edge visuals and seamless functionality",
+    img: "./next.png",
+    iconLists: ["./re.svg", "./ts.svg", "./tail.svg", "./ace.png", "./next.svg"],
+    linkType: "repo",
+    link: "https://czampath.github.io/next-framer-portfolio/",
+  },
+  {
+    id: 4,
+    title: "Smart Home Automation Server",
+    des: "Feature-rich home server with AI-driven surveillance, advanced task scheduling, and seamless control",
+    img: "./home-app-2.png",
+    iconLists: ["./cpp.png", "./py.png", "./nd.png", "./ar.png", "./sb.png"],
+    linkType: "repo",
+    link: "https://github.com/czampath",
+  },
 ];
 
 export const testimonials = [
