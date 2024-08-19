@@ -6,9 +6,11 @@ import { GlobeDemo } from "./GridGlobe";
 import Lottie from "react-lottie";
 import React, { useEffect, useRef, useState } from "react";
 import animationData from '@/data/confetti.json'
+import searchAnimationData from '@/data/search.json'
 import MagicButton from "./MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
 import MagnifyGlass from "../MagnifyGlass";
+import { FaDownload, FaFileDownload } from "react-icons/fa";
 
 export const BentoGrid = ({
     className,
@@ -53,11 +55,42 @@ export const BentoGridItem = ({
 
     const [copied, setCopied] = useState(false);
     const [hoverOneActive, setHoverOneActive] = useState(false)
+    const [hoverFourActive, setHoverFourActive] = useState(false)
+    const cardFourRef = useRef(null)
 
     const handleCopy = () => {
         navigator.clipboard.writeText("csampath.work@gmail.com")
         setCopied(true)
     }
+
+    useEffect(() => {
+        debugger
+        let $img:any = cardFourRef.current
+        if ($img) {
+            if (hoverFourActive === true) {
+                if ($img) {
+                    $img.style.opacity = "0.15";
+                }
+            } else {
+                if ($img) {
+                    $img.style.opacity = "0";
+                }
+            }
+        }
+    }, [hoverFourActive])
+
+    useEffect(() => {
+        let $img = document.getElementById('img-1')
+        if (hoverOneActive === true) {
+            if ($img) {
+                $img.style.opacity = "0.5";
+            }
+        } else {
+            if ($img) {
+                $img.style.opacity = "1";
+            }
+        }
+    }, [hoverOneActive])
 
     const handleDownload = () => {
         const link = document.createElement('a');
@@ -75,39 +108,39 @@ export const BentoGridItem = ({
     return (
         <div
             className={cn(
-                "select-none row-span-1 relative overflow-hidden rounded-3xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4 border border-white/[0.1]",
+                "select-none z-20 row-span-1 relative overflow-hidden rounded-3xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4 border border-white/[0.1]",
                 className
             )}
             style={{
                 background: "linear-gradient(39deg, rgb(26 26 26) 0%, rgb(15 14 47) 46%, rgb(11 4 127 / 83%) 100%)"
             }}
-            onMouseEnter={id === 1 ? () => setHoverOneActive(true) : undefined}
-            onMouseLeave={id === 1 ? () => setHoverOneActive(false) : undefined}
+            onMouseEnter={id === 1 ? () => setHoverOneActive(true) : id=== 4 ? () => setHoverFourActive(true) :  undefined}
+            onMouseLeave={id === 1 ? () => setHoverOneActive(false) : id=== 4 ? () => setHoverFourActive(false) :   undefined}
         >
             <div className={`${id === 6 && 'flex justify-center'} h-full`}>
                 <div className="w-full h-full absolute">
-                    {img && (<img src={img} alt={img} className={cn(imgClassName, 'object-cover', 'object-center')}></img>)}
+                    {img && (<img src={img} alt={img} id={`img-${id}`} className={cn(imgClassName, 'object-cover', 'object-center')}></img>)}
                 </div>
-                <div className={`${id}-t4t4t absolute right-0 -bottom-5 ${id === 5 && 'w-full opacity-80'}`}>
+                <div className={`${id}-t4t4t absolute right-0 -bottom-0 ${id === 5 && 'w-full opacity-80'}`}>
                     {spareImg && (<img src={spareImg} alt={spareImg} className={'object-cover object-center w-full h-full'}></img>)}
                 </div>
                 {id === 6 && (
-                    <BackgroundGradientAnimation>
-                    </BackgroundGradientAnimation>
+                    <BackgroundGradientAnimation />
+
                 )}
                 <div className={cn(
                     titleClassName, 'group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col p-5 lg:p-7 lg:pt-4'
                 )}>
                     {id === 5 ?
                         <>
-                            <div className="w-[60%] font-sans font-bold text-lg lg:text-xl max-w-96 z-10 pt-0 select-none">
+                            <div className="md:w-[90%] w-[60%] font-sans font-bold text-lg lg:text-xl max-w-96 z-10 pt-0 select-none">
                                 {title}
                             </div>
-                            <div className="w-[60%] font-sans font-extralight text-[#c1c2c3] text-sm md:text-xs lg:text-base z-10 select-none">
+                            <div className="md:w-[90%] w-[60%] font-sans font-extralight text-[#c1c2c3] text-sm md:text-xs lg:text-base z-10 select-none">
                                 {description}
                             </div>
                         </> :
-                        <div className="flex justify-between pr-4">
+                        <div className={`${id === 1 && 'md:flex-row flex-col gap-4'} flex justify-between pr-4`}>
                             <div className="flex flex-col">
                                 <div className="font-sans font-extralight text-[#c1c2c3] text-sm md:text-xs lg:text-base z-10 select-none">
                                     {description}
@@ -118,16 +151,23 @@ export const BentoGridItem = ({
                             </div>
                             {id === 1 && hoverOneActive &&
                                 <div className="flex justify-center items-center">
-                                    <button onClick={handleDownload} className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-                                        Download my Resume
+
+                                    <button onClick={handleDownload} className="inline-flex h-12 py-7 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                                        Download Resume
+                                        <span className="pl-2">
+                                            <FaFileDownload />
+                                        </span>
                                     </button>
                                 </div>}
                         </div>}
 
 
                     {id === 4 &&
-                        <>
+                        <div ref={cardFourRef} className="opacity-0 transition duration-700 absolute right-6 -bottom-20 cursor-none">
                             <Lottie
+                                height={270}
+                                isClickToPauseDisabled={true}
+                                style={{cursor: "default"}}
                                 options={
                                     {
                                         loop: true,
@@ -139,7 +179,7 @@ export const BentoGridItem = ({
                                     }
                                 }
                             />
-                        </>
+                        </div>
                     }
                     {id === 5 &&
                         <>
@@ -176,7 +216,9 @@ export const BentoGridItem = ({
                     {id === 6 && (
                         <div className="mt-5 relative">
                             <div onClick={handleCopy} className={`absolute lg:-bottom-16 md:-bottom-24 -bottom-12 right-0`}>
-                                <Lottie options={{
+                                <Lottie
+                                isClickToPauseDisabled={true}
+                                 options={{
                                     loop: copied,
                                     autoplay: copied,
                                     animationData,
@@ -238,10 +280,10 @@ const Blocker = () => {
                 <div onClick={fnClick} className={`absolute ${blurred === true ? "bg-black-200  backdrop-filter backdrop-blur-lg saturate-150 bg-opacity-75" : ""} transition-all duration-700 lg:-ml-10 md:-mt-5 lg:-mb-7 p-5 -ml-6 md:-ml-8 w-[105%] h-[105%] z-30 flex `}>
                     <div className="lg:pt-0 md:pt-[50%] md:pr-0 z-40 w-full flex flex-col justify-start pr-10">
 
-                        {clickCount > 3 && clickCount < 7 && (<div className="lg:pt-[30%] md:pt-[75%] md:text-center md:pr-0 text-right pt-20 w-full">Try Harder</div>)}
-                        {clickCount >= 9 && clickCount < 13 && (<div className="lg:pt-[30%] md:pt-[75%] md:text-center md:pr-0 text-right pt-12 text-3xl w-full">Harder!</div>)}
-                        {clickCount >= 15 && clickCount < 18 && (<div className="lg:pt-[30%] md:pt-[75%] md:text-center md:pr-0 text-right pt-28 w-full">Looks like nothing's happening right?</div>)}
-                        {clickCount >= 20 && clickCount < 25 && (<div className="lg:pt-[30%] md:pt-[25%] md:text-center md:pr-0 text-right pt-1 text-xl font-sans font-extralight">Yes, progress at times go unnoticable, it doesn't mean you should stop trying</div>)}
+                        {clickCount > 3 && clickCount < 7 && (<div className="lg:pt-[30%] md:pt-[50%] md:text-center md:pr-0 text-right pt-20 w-full">Try Harder</div>)}
+                        {clickCount >= 9 && clickCount < 13 && (<div className="lg:pt-[30%] md:pt-[50%] md:text-center md:pr-0 text-right pt-12 text-3xl w-full">Harder!</div>)}
+                        {clickCount >= 15 && clickCount < 18 && (<div className="lg:pt-[30%] md:pt-[50%] md:text-center md:pr-0 text-right pt-28 w-full">Looks like nothing's happening right?</div>)}
+                        {clickCount >= 20 && clickCount < 25 && (<div className="lg:pt-[30%] md:pt-[15%] md:text-center md:pr-0 text-right pt-1 text-xl font-sans font-extralight">Yes, progress at times go unnoticable, but it doesn't mean you should stop trying</div>)}
                         {clickCount >= 22 && clickCount < 25 && (<div className="md:pt-10 md:text-center md:pr-0 text-right text-lg pt-0  font-sans font-light">Every</div>)}
                         {clickCount >= 23 && clickCount < 25 && (<div className="md:pt-0 md:text-center md:pr-0 text-right text-xl font-sans font-normal">Click</div>)}
                         {clickCount >= 24 && clickCount < 25 && (<div className="md:pt-0 md:text-center md:pr-0 text-right  text-2xl font-sans font-bold">Counts!</div>)}
@@ -253,7 +295,9 @@ const Blocker = () => {
             )}
             {clear === true && (
                 <div className="absolute w-full h-full flex items-center justify-center z-1">
-                    <Lottie options={{
+                    <Lottie
+                    isClickToPauseDisabled={true}
+                     options={{
                         loop: false,
                         autoplay: true,
                         animationData,

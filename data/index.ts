@@ -11,8 +11,8 @@ export const gridItems = [
     title: "Tech enthusiast with a passion for development, and a proven track record",
     description: "",
     className: "lg:col-span-3 md:col-span-6 md:row-span-5",
-    imgClassName: "w-full h-full",
-    titleClassName: "justify-end",
+    imgClassName: "w-full h-full transition duration-500",
+    titleClassName: "md:justify-end justify-start",
     img: "./b1.png",
     spareImg: "",
   },
@@ -46,14 +46,14 @@ export const gridItems = [
     imgClassName: "",
     titleClassName: "justify-start",
     img: "./grid.svg",
-    spareImg: "./b4.png",
+    spareImg: "./b4.svg",
   },
 
   {
     id: 5,
     title: "Flexible with adjusting work hours to accommodate different time zones",
     description: "Tip: Give this globe a spin and witness the magic!",
-    className: "md:col-span-3 md:row-span-5",
+    className: "md:col-span-3 md:row-span-4 lg:row-span-5",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
     titleClassName: "justify-center md:justify-start lg:justify-end",
     img: "",
@@ -74,7 +74,7 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "3D low-polygon Stardome generator for THREE.js",
+    title: "3D low-polygon Stardome generator: THREE.js",
     des: "A module that uses Three.js to mathematically populate a cross-cut Stardome with varying star colors, densities, sizes, and scatter distances.",
     img: "./p1.png",
     iconLists: ["./vt.png", "./js.svg", "./three.svg"],
