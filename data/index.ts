@@ -8,29 +8,31 @@ export const navItems = [
 export const gridItems = [
   {
     id: 1,
-    title: "I prioritize client collaboration, fostering open communication ",
+    title: "Tech enthusiast with a passion for development, and a proven track record",
     description: "",
-    className: "lg:col-span-3 md:col-span-6 md:row-span-4",
+    className: "lg:col-span-3 md:col-span-6 md:row-span-5",
     imgClassName: "w-full h-full",
     titleClassName: "justify-end",
-    img: "./b1.svg",
+    img: "./b1.png",
     spareImg: "",
   },
+
   {
     id: 2,
-    title: "Flexible with adjusting work hours to accommodate different time zones",
-    description: "Tip: Give this globe a spin and witness the magic!",
+    title: "Currently building a JS Animation library",
+    description: "The Inside Scoop",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-    imgClassName: "",
+    imgClassName: "absolute bottom-0 right-0 w-[60%] h-[60%]",
     titleClassName: "justify-start",
-    img: "",
-    spareImg: "",
+    img: "./b5.svg",
+    spareImg: "./grid.svg",
   },
+
   {
     id: 3,
     title: "My tech stack",
     description: "I constantly try to improve",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+    className: "lg:col-span-2 md:col-span-3 md:row-span-3",
     imgClassName: "",
     titleClassName: "justify-center",
     img: "",
@@ -38,13 +40,13 @@ export const gridItems = [
   },
   {
     id: 4,
-    title: "Tech enthusiast with a passion for development.",
+    title: "Tech enthusiast, with a keen eye for attention to details",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
     titleClassName: "justify-start",
     img: "./grid.svg",
-    spareImg: "./b4.svg",
+    spareImg: "./b4.png",
   },
 
   {

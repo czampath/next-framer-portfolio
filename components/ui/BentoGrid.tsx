@@ -8,6 +8,7 @@ import React, { useEffect, useRef, useState } from "react";
 import animationData from '@/data/confetti.json'
 import MagicButton from "./MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
+import MagnifyGlass from "../MagnifyGlass";
 
 export const BentoGrid = ({
     className,
@@ -51,10 +52,24 @@ export const BentoGridItem = ({
 }) => {
 
     const [copied, setCopied] = useState(false);
+    const [hoverOneActive, setHoverOneActive] = useState(false)
 
     const handleCopy = () => {
         navigator.clipboard.writeText("csampath.work@gmail.com")
         setCopied(true)
+    }
+
+    const handleDownload = () => {
+        const link = document.createElement('a');
+        link.href = './resume_v2024_1.8.pdf'
+        link.download = 'example.pdf'
+        link.id = 'download-link'
+        document.body.appendChild(link)
+        link.click()
+        const linkToRemove = document.getElementById('download-link')
+        if (linkToRemove) {
+            document.body.removeChild(linkToRemove)
+        }
     }
 
     return (
@@ -66,6 +81,8 @@ export const BentoGridItem = ({
             style={{
                 background: "linear-gradient(39deg, rgb(26 26 26) 0%, rgb(15 14 47) 46%, rgb(11 4 127 / 83%) 100%)"
             }}
+            onMouseEnter={id === 1 ? () => setHoverOneActive(true) : undefined}
+            onMouseLeave={id === 1 ? () => setHoverOneActive(false) : undefined}
         >
             <div className={`${id === 6 && 'flex justify-center'} h-full`}>
                 <div className="w-full h-full absolute">
@@ -99,10 +116,13 @@ export const BentoGridItem = ({
                                     {title}
                                 </div>
                             </div>
-                            <div className="font-sans font-bold text-lg lg:text-xl max-w-96 z-10 pt-0 select-none">
-                                {title}
-                            </div>
-                        </>}
+                            {id === 1 && hoverOneActive &&
+                                <div className="flex justify-center items-center">
+                                    <button onClick={handleDownload} className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                                        Download my Resume
+                                    </button>
+                                </div>}
+                        </div>}
 
 
                     {id === 4 &&
