@@ -1,4 +1,4 @@
-'use client' // 👈 use it here
+'use client'
 
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBG";

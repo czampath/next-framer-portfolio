@@ -1,13 +1,26 @@
+'use client'
+
 import { workExperience } from '@/data'
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button } from './ui/MovingBorder'
+import { AuroraBackground } from './ui/Aurora'
 
 const Experience = () => {
+    const auroraRef = useRef(null)
+    const [firstDraw, setFirstDraw] = useState(false)
+
+    useEffect(()=>{
+        setTimeout(()=>{
+            setFirstDraw(true)
+        }, 1000)
+    },[])
+    
     return (
         <div className='py-20' id="work">
+            <AuroraBackground className={`w-screen h-screen absolute z-10 top-0 transition duration-1000 ${firstDraw===true ? "opacity-50" : 'opacity-0' }`} />
             <h1 className='heading'>
                 My
-                <span className='text-purple'> Work Experience</span>
+                <span className='text-purple'> Work Highlights</span>
             </h1>
             <div className='w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10'>
                 {workExperience.map((card) => (
