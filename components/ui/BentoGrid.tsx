@@ -9,8 +9,7 @@ import animationData from '@/data/confetti.json'
 import searchAnimationData from '@/data/search.json'
 import MagicButton from "./MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
-import MagnifyGlass from "../MagnifyGlass";
-import { FaDownload, FaFileDownload } from "react-icons/fa";
+import { FaFileDownload } from "react-icons/fa";
 
 export const BentoGrid = ({
     className,
