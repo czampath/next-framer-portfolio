@@ -63,7 +63,6 @@ export const BentoGridItem = ({
     }
 
     useEffect(() => {
-        debugger
         let $img:any = cardFourRef.current
         if ($img) {
             if (hoverFourActive === true) {

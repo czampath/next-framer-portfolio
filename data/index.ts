@@ -74,24 +74,6 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "3D low-polygon Stardome generator: THREE.js",
-    des: "A module that uses Three.js to mathematically populate a cross-cut Stardome with varying star colors, densities, sizes, and scatter distances.",
-    img: "./p1.png",
-    iconLists: ["./vt.png", "./js.svg", "./three.svg"],
-    linkType: "live",
-    link: "https://czampath.github.io/vite-basic-earth/",
-  },
-  {
-    id: 2,
-    title: "FANTECH gaming peripherals ARGB CLI",
-    des: "This custom command line tool, developed through reverse engineering, controls ARGB lighting for FANTECH RGB peripherals.",
-    img: "./p2.png",
-    iconLists: ["./py.png", "./ws.png"],
-    linkType: "repo",
-    link: "https://github.com/czampath/fantech-rgb-cli",
-  },
-  {
-    id: 3,
     title: "Futuristic Dev Showcase: Next.js",
     des: "Harnessing the power of Next.js and Aceternity UI to deliver a sleek, futuristic portfolio with cutting-edge visuals and seamless functionality",
     img: "./next.png",
@@ -100,7 +82,7 @@ export const projects = [
     link: "https://czampath.github.io/next-framer-portfolio/",
   },
   {
-    id: 4,
+    id: 2,
     title: "Smart Home Automation Server",
     des: "Feature-rich home server with AI-driven surveillance, advanced task scheduling, and seamless control",
     img: "./home-app-2.png",
@@ -108,39 +90,46 @@ export const projects = [
     linkType: "repo",
     link: "https://github.com/czampath",
   },
+  {
+    id: 3,
+    title: "3D low-polygon Stardome generator: THREE.js",
+    des: "A module that uses Three.js to mathematically populate a cross-cut Stardome with varying star colors, densities, sizes, and scatter distances.",
+    img: "./p1.png",
+    iconLists: ["./vt.png", "./js.svg", "./three.svg"],
+    linkType: "live",
+    link: "https://czampath.github.io/vite-basic-earth/",
+  },
+  {
+    id: 4,
+    title: "FANTECH gaming peripherals ARGB CLI",
+    des: "This custom command line tool, developed through reverse engineering, controls ARGB lighting for FANTECH RGB peripherals.",
+    img: "./p2.png",
+    iconLists: ["./py.png", "./ws.png"],
+    linkType: "repo",
+    link: "https://github.com/czampath/fantech-rgb-cli",
+  },
 ];
 
 export const testimonials = [
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "He's a very hard worker and has always willing to go the extra mile for us because he cares about the product he's working on. He's also a really competent developer and, from what I've experienced, is able to come up with solutions/ different ways of implementing development if how we want something to work doesn't fit",
+    name: "Sarah Field",
+    title: "General Manager - Assembly SMS",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "We just wanted to let you know how happy we are with the changes you have just introduced, in particular in Attendance under 'Registers for Today' where we can now easily see if a register has not been marked, as it displays in red writing. I also love that in the Administration Dashboard, when I search for a child by first name, all children with that first name appear but now they are colour-coded green for pending, red for left and black for current. Such great changes that really help all our Admin staff in the office here. Thanks again!!!!!",
+    name: "Lisa Laurence ",
+    title: "Administrator at Tamahere Primary NZ",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "We would have loved to bring you over and employ you to look after the software. You have been the best programmer.",
+    name: "Cindy Brown",
+    title: "CEO - Assembly SMS",
   },
-  {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-  {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
+
 ];
 
 export const companies = [
