@@ -180,29 +180,29 @@ export const companies = [
 export const workExperience = [
   {
     id: 1,
-    title: "Frontend Engineer Intern",
-    desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+    title: "Frontend Developer",
+    desc: "Developed an MVP shopping UI for the public community in NZ enabling seamless experiences for both registered and non-registered users",
     className: "md:col-span-2",
     thumbnail: "./exp1.svg",
   },
   {
     id: 2,
-    title: "Mobile App Dev - JSM Tech",
-    desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
+    title: "Senior Software Engineer",
+    desc: "Optimized system performance and revamped features using various technologies, reducing latency by 91% and enhancing throughput and user experience",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "./exp2.svg",
   },
   {
     id: 3,
-    title: "Freelance App Dev Project",
-    desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
+    title: "Team Lead",
+    desc: "Led a high-performing team, ensuring timely delivery of features, integrations, and bug fixes while mentoring and fostering collaboration",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "./exp3.svg",
   },
   {
     id: 4,
-    title: "Lead Frontend Developer",
-    desc: "Developed and maintained user-facing features using modern frontend technologies.",
+    title: "Software Engineer",
+    desc: "Engineered an dynamic and interactive portal for students, caregivers, and staff with an event-driven newsfeed to boost engagement",
     className: "md:col-span-2",
     thumbnail: "./exp4.svg",
   },

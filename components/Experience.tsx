@@ -20,7 +20,7 @@ const Experience = () => {
             <AuroraBackground className={`w-screen h-screen absolute z-10 top-0 transition duration-1000 ${firstDraw===true ? "opacity-50" : 'opacity-0' }`} />
             <h1 className='heading'>
                 My
-                <span className='text-purple'> Work Highlights</span>
+                <span className='text-purple'> Work Experiences</span>
             </h1>
             <div className='w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10'>
                 {workExperience.map((card) => (
