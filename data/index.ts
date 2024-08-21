@@ -146,7 +146,7 @@ export const companies = [
     nameImg: "./mikipro-alt.png",
   },
   {
-    id: 4,
+    id: 3,
     name: "moenz",
     img: "./moenz.png",
     nameImg: "./moenz-alt.png",
@@ -174,6 +174,7 @@ export const companies = [
 export const workExperience = [
   {
     id: 1,
+    company:"kindo",
     title: "Frontend Developer",
     desc: "Developed an MVP shopping UI for the public community in NZ enabling seamless experiences for both registered and non-registered users",
     className: "md:col-span-2",
@@ -181,20 +182,23 @@ export const workExperience = [
   },
   {
     id: 2,
+    company:"assembly",
     title: "Senior Software Engineer",
     desc: "Optimized system performance and revamped features using various technologies, reducing latency by 91% and enhancing throughput and user experience",
-    className: "md:col-span-2", // change to md:col-span-2
+    className: "md:col-span-2",
     thumbnail: "./exp2.svg",
   },
   {
     id: 3,
+    company:"allion",
     title: "Team Lead",
     desc: "Led a high-performing team, ensuring timely delivery of features, integrations, and bug fixes while mentoring and fostering collaboration",
-    className: "md:col-span-2", // change to md:col-span-2
+    className: "md:col-span-2", 
     thumbnail: "./exp3.svg",
   },
   {
     id: 4,
+    company:"assembly",
     title: "Software Engineer",
     desc: "Engineered an dynamic and interactive portal for students, caregivers, and staff with an event-driven newsfeed to boost engagement",
     className: "md:col-span-2",

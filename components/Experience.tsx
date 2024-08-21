@@ -9,18 +9,18 @@ const Experience = () => {
     const auroraRef = useRef(null)
     const [firstDraw, setFirstDraw] = useState(false)
 
-    useEffect(()=>{
-        setTimeout(()=>{
+    useEffect(() => {
+        setTimeout(() => {
             setFirstDraw(true)
         }, 1000)
-    },[])
-    
+    }, [])
+
     return (
         <div className='py-20' id="work">
-            <AuroraBackground className={`w-screen h-screen absolute z-10 top-0 transition duration-1000 ${firstDraw===true ? "opacity-50" : 'opacity-0' }`} />
+            <AuroraBackground className={`w-screen h-screen absolute z-10 top-0 transition duration-1000 ${firstDraw === true ? "opacity-50" : 'opacity-0'}`} />
             <h1 className='heading'>
                 My
-                <span className='text-purple'> Work Experiences</span>
+                <span className='text-purple'> Work Highlights</span>
             </h1>
             <div className='w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10'>
                 {workExperience.map((card) => (
@@ -32,7 +32,10 @@ const Experience = () => {
                         <div className='flex lg:flex-row flex-col lg:items-center p-3 py-6 md:p-5 lg:p-10 gap-2'>
                             <img src={card.thumbnail} alt={card.thumbnail} className='lg:w-32 mdd:w-20 w-16' />
                             <div className='lg:ms-5 '>
-                                <h1 className='text-start text-lx md:text-2xl font-bold'>{card.title}</h1>
+                                <div className='flex flex-row items-center'>
+                                    <img className="w-7 h-7 mr-2" src={card.company + ".png"} />
+                                    <h1 className='text-start text-lx md:text-2xl font-bold'>{card.title}</h1>
+                                </div>
                                 <p className='text-start text-white-100 mt-3 font-semibold'>{card.desc}</p>
                             </div>
                         </div>

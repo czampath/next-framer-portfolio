@@ -26,7 +26,7 @@ const Hero = () => {
                         <p className='text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl select-none'>A full-stack developer working remotely from <span className='text-purple'>Sri Lanka</span> engineering robust solutions with a strong foundation in back-end development, paired with cutting-edge front-end design</p>
                         <a href='#about'>
                             <MagicButton
-                                title="About me "
+                                title="More About Me "
                                 icon={<FaLocationArrow />}
                                 position='right'
                             />
