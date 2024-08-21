@@ -146,12 +146,6 @@ export const companies = [
     nameImg: "./mikipro-alt.png",
   },
   {
-    id: 3,
-    name: "edsby",
-    img: "./edsby.png",
-    nameImg: "./edsby-alt.png",
-  },
-  {
     id: 4,
     name: "moenz",
     img: "./moenz.png",

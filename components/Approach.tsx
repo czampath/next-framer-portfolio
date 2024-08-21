@@ -6,13 +6,13 @@ import { CanvasRevealEffect } from "./ui/CanvasRevealEffect";
 
 const Approach = () => {
     return (
-        <section className="w-full py-20">
+        <section className="w-full py-20 select-none">
             <h1 className="heading">My <span className="text-purple">appoach</span></h1>
             <div className="my-20 flex flex-col lg:flex-row items-center justify-center gap-4">
                 <Card
-                    title="Planning & Stratergy"
+                    title="Insightful Analysis"
                     icon={<AceternityIcon order="Phase 1" />}
-                    desc="That's how I start"
+                    desc="Assess the problem space, identifying key requirements and potential challenges to ensure informed and effective solution crafting"
                 >
                     <CanvasRevealEffect
                         animationSpeed={5.1}
@@ -20,28 +20,24 @@ const Approach = () => {
                     />
                 </Card>
                 <Card
-                    title="Development & Progress Update"
+                    title="Estimation and Strategy"
                     icon={<AceternityIcon order="Phase 2" />}
-                    desc="That's how I continue"
+                    desc="Deliver precise resource and time estimates, coupled with a clear, strategic roadmap to effectively guide all development phases"
                 >
                     <CanvasRevealEffect
                         animationSpeed={3}
-                        containerClassName='bg-black'
-                        colors={[
-                            [236, 72, 153],
-                            [232, 121, 249],
-                        ]}
+                        containerClassName='bg-red-900'
                         dotSize={2}
                     />
                 </Card>
                 <Card
-                    title="Development & Launch"
+                    title="Agile Execution"
                     icon={<AceternityIcon order="Phase 3" />}
-                    desc="That's how I deliver"
+                    desc="Implement solutions through iterative Agile sprints, allowing for continuous feedback, ensuring flexibility, quality, and timely delivery."
                 >
                     <CanvasRevealEffect
                         animationSpeed={3}
-                        containerClassName="bg-sky-600"
+                        containerClassName="bg-sky-800"
                         colors={[[125, 211, 252]]}
                     />
                 </Card>
@@ -92,7 +88,7 @@ const Card = ({
                 <h2 className="dark:text-white opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 text-center text-3xl">
                     {title}
                 </h2>
-                <h2 className="dark:text-white text-sm opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 text-center" style={{ 'color': "#e4ecff" }}>
+                <h2 className="dark:text-white lg:text-base text-base opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 text-center" style={{ 'color': "#e4ecff" }}>
                     {desc}
                 </h2>
             </div>
