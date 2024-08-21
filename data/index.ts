@@ -8,7 +8,7 @@ export const navItems = [
 export const gridItems = [
   {
     id: 1,
-    title: "Tech enthusiast with a passion for development, and a proven track record",
+    title: "Tech enthusiast with a passion for development, and with a proven track record",
     description: "",
     className: "lg:col-span-3 md:col-span-6 md:row-span-5",
     imgClassName: "w-full h-full transition duration-500",
@@ -16,11 +16,10 @@ export const gridItems = [
     img: "./b1.png",
     spareImg: "",
   },
-
   {
     id: 2,
-    title: "Currently building a JS Animation library",
-    description: "The Inside Scoop",
+    title: "Over 6 years of experience as a versatile Web Developer",
+    description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "absolute bottom-0 right-0 w-[60%] h-[60%]",
     titleClassName: "justify-start",
@@ -31,16 +30,16 @@ export const gridItems = [
   {
     id: 3,
     title: "My tech stack",
-    description: "I constantly try to improve",
+    description: "On constant hunt to gain new knowledge",
     className: "lg:col-span-2 md:col-span-3 md:row-span-3",
     imgClassName: "",
-    titleClassName: "justify-center",
+    titleClassName: "justify-end flex flex-col-reverse",
     img: "",
     spareImg: "",
   },
   {
     id: 4,
-    title: "Tech enthusiast, with a keen eye for attention to details",
+    title: "Perfectionist with a keen eye for attention to details",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",

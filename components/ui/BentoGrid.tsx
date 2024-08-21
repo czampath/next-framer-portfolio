@@ -91,9 +91,10 @@ export const BentoGridItem = ({
     }, [hoverOneActive])
 
     const handleDownload = () => {
+        let resumeName = 'Resume_of_Chathuranga_Sampath-v2024_1.9.pdf'
         const link = document.createElement('a');
-        link.href = './resume_v2024_1.8.pdf'
-        link.download = 'example.pdf'
+        link.href = './'+ resumeName
+        link.download = resumeName
         link.id = 'download-link'
         document.body.appendChild(link)
         link.click()
@@ -102,6 +103,12 @@ export const BentoGridItem = ({
             document.body.removeChild(linkToRemove)
         }
     }
+
+    let skillRowOne = ['Java', 'Spring Boot',"Play Framework", 'PostgreSQL', 'Hibernate', ]
+    let skillRowTwo = ['React.js', 'Next.js', 'Node.js', 'TypeScript', 'HTML/CSS', 'Tailwind', "MobX"]
+    let skillRowThree = ['THREE.js', "Python"]
+
+    let skillsAll = skillRowOne.concat(skillRowTwo, skillRowThree)
 
     return (
         <div
@@ -127,7 +134,7 @@ export const BentoGridItem = ({
 
                 )}
                 <div className={cn(
-                    titleClassName, 'group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col p-5 lg:p-7 lg:pt-4'
+                    titleClassName, `group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex ${id===3 ? "flex-col-reverse": "flex-col" }  p-5 lg:p-7 lg:pt-4`
                 )}>
                     {id === 5 ?
                         <>
@@ -186,27 +193,14 @@ export const BentoGridItem = ({
                         </>
                     }
                     {id === 3 && (
-                        <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
-                            <div className="flex flex-col gap-2 lg:gap-1">
-                                {['JAVA', 'Spring Boot', 'PostgreSQL', 'Node.js'].map((item) =>
-                                    <span key={item} className="py-1  lg:px-2 px-1 text-xs lg:text-base opacity-50 lg:opacity-70 rounded-lg text-center bg-[#10132E]">{item}</span>
-                                )}
-
-                                <span className="py-4 px-3 rounded-lg text-center bg-[#10132E]" />
-                            </div>
-                            <div className="flex flex-col gap-2 lg:gap-1">
-                                <span className="py-4 px-3 rounded-lg text-center bg-[#10132E]" />
-                                {['React.js', 'Next.js', 'TypeScript', 'HTML/CSS'].map((item) =>
-                                    <span key={item} className="py-1  lg:px-2 px-1 text-xs lg:text-base opacity-50 lg:opacity-70 rounded-lg text-center bg-[#10132E]">{item}</span>
-                                )}
-
-                            </div>
-                            <div className="flex flex-col gap-2 lg:gap-1">
-                                <span className="py-4 px-3 rounded-lg text-center bg-[#10132E]" />
-                                {['Angular', 'HIbernate', 'SVG', 'UI/UX'].map((item) =>
-                                    <span key={item} className="py-1  lg:px-2 px-1 text-xs lg:text-base opacity-50 lg:opacity-70 rounded-lg text-center bg-[#10132E]">{item}</span>
-                                )}
-
+                        <div className="gap-1 lg:gap-5 h-[90%] w-full mr-3 flex justify-center items-start py-3 -right-3 lg:-right-2">
+                            <div className="grid md:grid-cols-3 grid-cols-5 gap-2 lg:gap-1 ">
+                                {skillsAll.map((item, i) =>(
+                                    <>
+                                        <span key={item} className="py-1  lg:px-2 px-1 text-xs lg:text-base opacity-50 lg:opacity-70 rounded-lg text-center bg-[#10132E]">{item}</span>
+                                        {i % 10 === 5 && <span className="py-4 px-3 rounded-lg text-center bg-[#10132E]" />}
+                                    </>
+                                ))}
                             </div>
                         </div>
                     )}
