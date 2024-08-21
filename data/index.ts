@@ -119,7 +119,7 @@ export const testimonials = [
   },
   {
     quote:
-      "We just wanted to let you know how happy we are with the changes you have just introduced, in particular in Attendance under 'Registers for Today' where we can now easily see if a register has not been marked, as it displays in red writing. I also love that in the Administration Dashboard, when I search for a child by first name, all children with that first name appear but now they are colour-coded green for pending, red for left and black for current. Such great changes that really help all our Admin staff in the office here. Thanks again!!!!!",
+      "We just wanted to let you know how happy we are with the changes you have just introduced, in particular [ in Attendance under 'Registers for Today' where we can now easily see if a register has not been marked, as it displays in red writing. I also love that in the Administration Dashboard, when I search for a child by first name, all children with that first name appear but now they are colour-coded green for pending, red for left and black for current. ] Such great changes that really help all our Admin staff in the office here. Thanks again!!!!!",
     name: "Lisa Laurence ",
     title: "Administrator at Tamahere Primary NZ",
   },

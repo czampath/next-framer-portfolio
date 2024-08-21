@@ -69,6 +69,35 @@ export const InfiniteMovingCards = ({
             }
         }
     };
+
+    function shiftCharacters(text:string, shift = 4) {
+        const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+        const upperAlphabet = alphabet.toUpperCase();
+        const shiftedText = text.split('').map(char => {
+            if (char === ' ') return ' '; // Preserve spaces
+
+            const isUpper = char === char.toUpperCase();
+            const charSet = isUpper ? upperAlphabet : alphabet;
+            const charIndex = charSet.indexOf(char);
+
+            if (charIndex === -1) return char; // Non-alphabetic characters remain unchanged
+
+            const newIndex = (charIndex + shift) % charSet.length;
+            return charSet[newIndex];
+        }).join('');
+
+        return shiftedText;
+    }
+
+    function processQuote(quote: string) {
+        const parts = quote.split(/(\[.*?\])/); // Split by text within square brackets
+        return parts.map((part, index) =>
+            part.startsWith('[') && part.endsWith(']')
+                ? <span key={index} className="filter blur-sm">{shiftCharacters(part.slice(1, -1))}</span>
+                : part
+        );
+    }
+
     return (
         <div
             ref={containerRef}
@@ -100,9 +129,7 @@ export const InfiniteMovingCards = ({
                                 aria-hidden="true"
                                 className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
                             ></div>
-                            <span className=" relative z-20 text-sm md:text-lg leading-[1.6] text-write font-normal">
-                                {item.quote}
-                            </span>
+                            {processQuote(item.quote)}
                             <div className="relative z-20 mt-6 flex flex-row items-center">
                                 <span className="flex flex-col gap-1">
                                     <div className="flex flex-col gap-1">
