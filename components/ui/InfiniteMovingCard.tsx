@@ -129,6 +129,11 @@ export const InfiniteMovingCards = ({
                                 aria-hidden="true"
                                 className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
                             ></div>
+                            {item.quote.includes("[") && (
+                                <div className="absolute w-[80%] h-[50%] bg-transparent flex justify-center items-center">
+                                    <span className="select-none text-lg bg-black text-white-100 p-5 font-bold rounded-lg">Confidential</span>
+                                </div>
+                            )}
                             {processQuote(item.quote)}
                             <div className="relative z-20 mt-6 flex flex-row items-center">
                                 <span className="flex flex-col gap-1">
