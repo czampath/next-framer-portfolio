@@ -2,7 +2,7 @@ import React from 'react'
 import { BentoGrid, BentoGridItem } from './ui/BentoGrid'
 import { gridItems } from '@/data'
 
-const Grid = () => {
+const Grid = ({fnMental}:{fnMental?: (val:any)=> void }) => {
   return (
     <section id='about'>
         <BentoGrid>
@@ -17,6 +17,7 @@ const Grid = () => {
                     imgClassName={imgClassName}
                     titleClassName={titleClassName}
                     spareImg={spareImg}
+                    fnMental={fnMental}
                 />
             ))}
         </BentoGrid>

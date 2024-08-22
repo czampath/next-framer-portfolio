@@ -6,7 +6,7 @@ import { GlobeDemo } from "./GridGlobe";
 import Lottie from "react-lottie";
 import React, { useEffect, useRef, useState } from "react";
 import animationData from '@/data/confetti.json'
-import searchAnimationData from '@/data/search.json'
+import searchAnimationData from '@/data/mag-glass.json'
 import MagicButton from "./MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
 import { FaFileDownload } from "react-icons/fa";
@@ -38,7 +38,8 @@ export const BentoGridItem = ({
     img,
     imgClassName,
     titleClassName,
-    spareImg
+    spareImg,
+    fnMental
 }: {
     className?: string;
     title?: string | React.ReactNode;
@@ -50,6 +51,7 @@ export const BentoGridItem = ({
     imgClassName?: string;
     titleClassName?: string;
     spareImg?: string;
+    fnMental?: (val:any)=>void
 }) => {
 
     const [copied, setCopied] = useState(false);
@@ -168,7 +170,7 @@ export const BentoGridItem = ({
 
 
                     {id === 4 &&
-                        <div ref={cardFourRef} className="opacity-0 transition duration-700 absolute right-6 -bottom-20 cursor-none">
+                        <div ref={cardFourRef} className="opacity-0 transition duration-700 absolute left-5 -bottom-20 cursor-none">
                             <Lottie
                                 height={270}
                                 isClickToPauseDisabled={true}
@@ -188,13 +190,13 @@ export const BentoGridItem = ({
                     }
                     {id === 5 &&
                         <>
-                            <Blocker />
+                            <Blocker fnMental={fnMental} />
                             <GlobeDemo />
                         </>
                     }
                     {id === 3 && (
                         <div className="gap-1 lg:gap-5 h-[90%] w-full mr-3 flex justify-center items-start py-3 -right-3 lg:-right-2">
-                            <div className="grid md:grid-cols-3 grid-cols-5 gap-2 lg:gap-1 ">
+                            <div className="grid md:grid-cols-3 grid-cols-4 gap-2 lg:gap-1 ">
                                 {skillsAll.map((item, i) =>(
                                     <>
                                         <span key={item} className="py-1  lg:px-2 px-1 text-xs lg:text-base opacity-50 lg:opacity-70 rounded-lg text-center bg-[#10132E]">{item}</span>
@@ -234,7 +236,7 @@ export const BentoGridItem = ({
     );
 };
 
-const Blocker = () => {
+const Blocker = ({fnMental}:{fnMental?: (val:any)=> void}) => {
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
     const [globeUnlocked, setGlobeUnlocked] = useState(false);
     const [clickCount, setClickCount] = useState(0)
@@ -266,6 +268,13 @@ const Blocker = () => {
         }, 5000)
     }
 
+    const goNuts = () =>{
+        setTimeout(()=>{
+            fnMental && fnMental(true)
+        }, 1000)
+        return true
+    }
+
     return (
         <>
             {globeUnlocked !== true && (
@@ -281,7 +290,7 @@ const Blocker = () => {
                         {clickCount >= 24 && clickCount < 25 && (<div className="md:pt-0 md:text-center md:pr-0 text-right  text-2xl font-sans font-bold">Counts!</div>)}
                         {clickCount >= 30 && clickCount < 40 && (<div className="md:pt-[50%] md:text-start text-right pt-10"> But don't forget to <span className="text-purple"> Take a break </span> here and there! <br></br> Its as crucial as <span className="text-purple"> Trying Hard</span></div>)}
                         {clickCount >= 35 && clickCount < 40 && (<div className=" text-xl font-bold md:text-start text-right">Yeah you may stop now</div>)}
-                        {clickCount >= 45 && (<div className="md:pt-[30%] text-2xl font-bold md:text-start text-right ">For christ's sake, CUT IT OUT!</div>)}
+                        {clickCount >= 45 && goNuts() && (<div className="md:pt-[30%] pt-[20%] text-2xl font-bold md:text-start text-right ">For christ's sake, CUT IT OUT!</div>)}
                     </div>
                 </div>
             )}
