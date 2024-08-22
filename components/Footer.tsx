@@ -15,7 +15,7 @@ const Footer = () => {
     return (
         <footer className='w-full pt-10 pb-10' id="contact">
             <div className='w-full absolute left-0 '>
-                <img src='/footer-grid.svg' alt='grid' className='w-full h-[75vh] opacity-75 lg:-mt-32 -mt-16' />
+                <img src='./footer-grid.svg' alt='grid' className='w-full h-[75vh] opacity-75 lg:-mt-32 -mt-16' />
             </div>
             <div className='flex flex-col items-center'>
                 <h1 className='heading md:max-w-[45vw]'>Ready to Take <span className='text-purple'> your</span>  digital presence to the next level</h1>
