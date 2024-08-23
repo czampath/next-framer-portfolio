@@ -30,7 +30,7 @@ export const gridItems = [
   {
     id: 3,
     title: "My tech stack",
-    description: "On constant hunt to gain new knowledge",
+    description: "On a constant hunt to gain new knowledge",
     className: "lg:col-span-2 md:col-span-3 md:row-span-3",
     imgClassName: "",
     titleClassName: "justify-end flex flex-col-reverse",
@@ -39,7 +39,7 @@ export const gridItems = [
   },
   {
     id: 4,
-    title: "Perfectionist with a keen eye for attention to details",
+    title: "With a keen eye for attention to details",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
@@ -51,7 +51,7 @@ export const gridItems = [
   {
     id: 5,
     title: "Flexible with adjusting work hours to accommodate different time zones",
-    description: "Tip: Give this globe a spin and witness the magic!",
+    description: "Tip: Give this globe a spin and see what happens!",
     className: "md:col-span-3 md:row-span-4 lg:row-span-5",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
     titleClassName: "justify-center md:justify-start lg:justify-end",

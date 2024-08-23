@@ -69,7 +69,7 @@ export const BentoGridItem = ({
         if ($img) {
             if (hoverFourActive === true) {
                 if ($img) {
-                    $img.style.opacity = "0.15";
+                    $img.style.opacity = "0.3";
                 }
             } else {
                 if ($img) {
@@ -106,7 +106,7 @@ export const BentoGridItem = ({
         }
     }
 
-    let skillRowOne = ['Java', 'Spring Boot',"Play Framework", 'PostgreSQL', 'Hibernate', ]
+    let skillRowOne = ['Java', 'Spring Boot',"Play Framework", 'PostgreSQL', 'Hibernate', "ActiveMQ"]
     let skillRowTwo = ['React.js', 'Next.js', 'Node.js', 'TypeScript', 'HTML/CSS', 'Tailwind', "MobX"]
     let skillRowThree = ['THREE.js', "Python"]
 
@@ -128,7 +128,7 @@ export const BentoGridItem = ({
                 <div className="w-full h-full absolute">
                     {img && (<img src={img} alt={img} id={`img-${id}`} className={cn(imgClassName, 'object-cover', 'object-center')}></img>)}
                 </div>
-                <div className={`${id}-t4t4t absolute right-0 -bottom-0 ${id === 5 && 'w-full opacity-80'}`}>
+                <div className={`${id}-t4t4t absolute right-0 -bottom-0 ${id===4 && " animate-fader "} ${id === 5 && 'w-full opacity-80 h-full'}`}>
                     {spareImg && (<img src={spareImg} alt={spareImg} className={'object-cover object-center w-full h-full'}></img>)}
                 </div>
                 {id === 6 && (
@@ -172,11 +172,13 @@ export const BentoGridItem = ({
                     {id === 4 &&
                         <div ref={cardFourRef} className="opacity-0 transition duration-700 absolute left-5 -bottom-20 cursor-none">
                             <Lottie
+                                speed={0.8}
                                 height={270}
                                 isClickToPauseDisabled={true}
                                 style={{cursor: "default"}}
                                 options={
-                                    {
+                                    {   
+                                        
                                         loop: true,
                                         autoplay: true,
                                         animationData: searchAnimationData,
@@ -195,13 +197,10 @@ export const BentoGridItem = ({
                         </>
                     }
                     {id === 3 && (
-                        <div className="gap-1 lg:gap-5 h-[90%] w-full mr-3 flex justify-center items-start py-3 -right-3 lg:-right-2">
-                            <div className="grid md:grid-cols-3 grid-cols-4 gap-2 lg:gap-1 ">
+                        <div className="shadow-2xl gap-1 lg:gap-5 h-[90%] w-full mr-3 flex justify-center items-start py-3 -right-3 lg:-right-2">
+                            <div className="shadow-xl grid md:grid-cols-3 grid-cols-4 gap-2 lg:gap-1 ">
                                 {skillsAll.map((item, i) =>(
-                                    <>
-                                        <span key={item} className="py-1  lg:px-2 px-1 text-xs lg:text-base opacity-50 lg:opacity-70 rounded-lg text-center bg-[#10132E]">{item}</span>
-                                        {i % 10 === 5 && <span className="py-4 px-3 rounded-lg text-center bg-[#10132E]" />}
-                                    </>
+                                    <span key={item} className="hover:shadow-[0_0px_2px_3px_rgba(0,0,0,0.4)] duration-300 hover:bg-slate-800 py-1 lg:px-2 px-1 text-xs lg:text-base opacity-60 lg:opacity-70 rounded-lg text-center bg-[#10132E]">{item}</span>
                                 ))}
                             </div>
                         </div>

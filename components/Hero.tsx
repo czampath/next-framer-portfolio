@@ -19,7 +19,7 @@ const Hero = () => {
                 </div>
                 <div className='flex justify-center relative mb-20 z-20'>
                     <div className='max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center'>
-                        <h2 className='uppercase tracking-widest text-xs text-center text-blue-100 w-full'>A glimpse of Dynamic WEB MAGIC via NEXT.JS</h2>
+                        <h2 className='uppercase tracking-widest text-xs text-center text-blue-100 w-full'>A glimpse of Dynamic WEB MAGIC via NEXT.JS + Tailwind CSS</h2>
                         <TextGenerateEffect
                             className="text-center text-[40px] md:text-5xl lg:text-6xl select-none"
                             words='Crafting Innovation into Impactful Digital Experiences' />

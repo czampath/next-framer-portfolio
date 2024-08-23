@@ -1,3 +1,4 @@
+import { transform } from "framer-motion";
 import type { Config } from "tailwindcss";
 
 const svgToDataUri = require("mini-svg-data-uri");
@@ -154,6 +155,18 @@ const config = {
             transform: "translate(calc(-50% - 0.5rem))",
           },
         },
+        fader:{
+          '0%': { opacity: "1.0"},
+          '5%':{ opacity: "0.5"},
+          '10%':{ opacity: "1.0"},
+          '15%':{ opacity: "0.5"},
+          '20%':{ opacity: "0.3"},
+          '90%':{ opacity: "0.3"},
+        },
+        starShift:{
+          '0%': { transform: "scale(1.0)"},
+          '50%':{ transform: "scale(1.1)"},
+        },
         up: {
           '0%' : { transform: 'translateY(20vh) rotate(0deg)' },
           '50%': { transform: 'translateY(-50vh)' },
@@ -175,7 +188,7 @@ const config = {
           '20%': { transform: 'scale(0.8) translate(-200vh, -400vh)' },
           '30%': { transform: 'scale(0.1) translate(400vh, 200vh)', filter: "blur(15px)" },
           '40%': { transform: 'scale(0.3) translate(0vh, 500vh) rotate(360deg)', filter: "blur(1px)" },
-          '50%': { transform: 'scale(0.1) translate(-200vh, -200vh)', filter: "blur(15px)" },
+          '50%': { transform: 'scale(0.2) translate(-100vh, -100vh)', filter: "blur(3px)" },
           '60%': { transform: 'scale(0.4) translate(600vh, 1200vh)' , filter: "blur(2px)"},
           '70%': { transform: 'scale(0.1) translate(200vh, 200vh)' , filter: "blur(15px)"},
           '75%': { transform: 'scale(0.3) translate(100vh, -150vh) rotate(100deg) rotateZ(180deg) rotateX(20deg) rotateY(20deg)' , filter: "blur(5px)"},
@@ -202,7 +215,8 @@ const config = {
         fourth: "moveHorizontal 40s ease infinite",
         fifth: "moveInCircle 20s ease infinite",
         scroll:"scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
-        spin360: "spin 60s linear infinite",
+        fader: "fader 6s ease-in-out infinite",
+        starShift: "starShift 20s ease-in-out infinite",
         float: 'float 10s infinite',
         snitchFloat: 'snitchFloat 40s infinite',
         faceFloat: 'faceFloat 10s infinite',
