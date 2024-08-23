@@ -14,7 +14,7 @@ const MyFloatingDiv = ({ children, flatFlying = false, dimmingFX = false, blur =
         const randomStyles = {
             animationDuration: ` ${isSnitch === true ? 20 : getRandomInt(5, 20)}s`, // Random duration between 8-12s
             transform: `translate(${getRandomInt(-100, 100)}%, ${getRandomInt(-400, 200)}%) rotateZ(${dimmingFX === true ? getRandomInt(0, 45) : getRandomInt(0, 350)}deg) rotateX(${dimmingFX === true ? 0 : getRandomInt(0, 350)}deg)`,
-            zIndex: isSnitch === true ? getRandomInt(40, 70) : dimmingFX === true ? 50 : getRandomInt(0, 50),
+            zIndex: isSnitch === true ? 150 : dimmingFX === true ? 50 : getRandomInt(0, 50),
             opacity: dimmingFX === true ? getRandomDouble() : 1,
             filter: `blur(${dimmingFX === true ? getRandomInt(0, 10) : flatFlying === true ? 0 : 4}px)`
         };

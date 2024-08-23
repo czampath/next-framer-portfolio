@@ -10,7 +10,7 @@ import Hero from "@/components/Hero";
 import RecentProjects from "@/components/RecentProjects";
 import { FloatingNav } from "@/components/ui/FloatingNav";
 import { navItems } from "@/data";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Lottie from "react-lottie";
 import snitchJson from "@/data/snitch2.json"
 import confusedEmojiData from "@/data/confused-em.json"
@@ -23,17 +23,86 @@ export default function Home() {
 
   const [mental, setMental] = useState(false)
   const [sanity, setSanity] = useState(false)
+  const [staging, setStaging] = useState(0)
+  const prevStage = useRef(0)
+  const stagingClass = useRef("")
+  const [currentStyle,setCurrentStyle] = useState(stagingClass.current)
+
+  let styles = [" brightness-[10]"," contrast-[2]", " invert", ""]
+
+  const animateTransition = () =>{
+
+    if(prevStage.current >= staging){
+      return 
+    }
+    switch(staging){
+      case 1:{
+        stagingClass.current = styles[0] 
+        break
+      }
+      case 2:{
+        stagingClass.current = styles[0] + styles[1] 
+        break
+      }      
+      case 3:{
+        stagingClass.current = styles[0] + styles[1] + styles[2] 
+        break
+      }
+      case 4:{
+        stagingClass.current = ""
+        setStaging(0)
+        return
+      }
+    }
+    if(staging>0 && staging<4){
+      setTimeout(()=>{
+        setStaging((val)=> {
+          let newVal = staging + 1;
+          prevStage.current = val
+          return newVal
+        } )
+      },1000)
+    }
+    setCurrentStyle(stagingClass.current)
+  }
+
 
   const fnMent = (val:any) => {
     window?.localStorage.setItem("mental", JSON.stringify(val))
-    setMental(val)
+
+    if(val===true){
+      setStaging(1)
+      setSanity(false)
+    }else{
+      setSanity(true)
+    }
+    prevStage.current = 0
+    if(val===false){
+        stagingClass.current = styles[2]
+        setCurrentStyle(stagingClass.current)
+        setTimeout(()=>{
+          setMental(val)
+          stagingClass.current = ""
+          setCurrentStyle(stagingClass.current)
+        },1000)
+    }else{
+      setTimeout(()=>{
+        setMental(val)
+        stagingClass.current = ""
+        setCurrentStyle(stagingClass.current)
+      },4000)
+    }
   }
+
+  useEffect(()=>{
+   animateTransition()
+  },[staging])
 
   const fnBackToSanity = () =>{
     setSanity(true)
     setTimeout(()=>{
       fnMent(false)
-    },1000)
+    },500)
   }
 
   useEffect(()=>{
@@ -49,18 +118,17 @@ export default function Home() {
     setMental(val ?? false);
   },[])
 
-  let snitchCount = 5
 
   return (
-    <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
+    <main className={`relative duration-1000 ${currentStyle} bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5`}>
       <div className={`max-w-7xl w-full ${mental===true ? "h-screen pt-[10%]" : "h-full"}`}>
         
           <>
             {mental===true && (
-              <>
+              <div className="overflow-hidden">
                 <ShootingStars/>
-                <StarsBackground/>
-              </>
+                <StarsBackground className="animate-starShift overflow-hidden"/>
+              </div>
             )}
             <MyFloatingDiv isMental={mental}>
               <FloatingNav navItems={navItems} />
@@ -105,11 +173,15 @@ export default function Home() {
                 </MyFloatingDiv>
 
                 <MyFloatingDiv isMental={mental}>
-                    <div className="w-full h-full flex justify-center items-center"><span className="text-7xl text-center">The only way to stop this is if you catch the snitch!</span></div>
+                    <div className="w-full h-full flex justify-center items-center mt-[50vh]"><span className="text-7xl text-center">The only way to stop this is if you catch the snitch!</span></div>
                 </MyFloatingDiv>
 
                 <MyFloatingDiv isMental={mental}>
-                    <div className="w-full h-full flex justify-center items-center"><span className="text-7xl text-center text-red-500">Catch the snitch!</span></div>
+                    <div className="w-full h-full flex justify-center items-center mt-[20vh] ml-[30vw]"><span className="text-7xl text-center text-red-500">Catch the snitch!</span></div>
+                </MyFloatingDiv>
+
+                <MyFloatingDiv isMental={mental}>
+                    <div className="w-full h-full flex justify-center items-center mt-[70vh] ml-[30vw]"><span className="text-7xl text-center text-amber-500 top-[40vh]">That flying Snitch is the key!</span></div>
                 </MyFloatingDiv>
 
                 <MyFloatingDiv  isMental={mental} isSnitch={true} flatFlying={true}>

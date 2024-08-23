@@ -10,6 +10,7 @@ import searchAnimationData from '@/data/mag-glass.json'
 import MagicButton from "./MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
 import { FaFileDownload } from "react-icons/fa";
+import { PiWarningFill } from "react-icons/pi";
 
 export const BentoGrid = ({
     className,
@@ -69,7 +70,7 @@ export const BentoGridItem = ({
         if ($img) {
             if (hoverFourActive === true) {
                 if ($img) {
-                    $img.style.opacity = "0.3";
+                    $img.style.opacity = "0.25";
                 }
             } else {
                 if ($img) {
@@ -170,7 +171,7 @@ export const BentoGridItem = ({
 
 
                     {id === 4 &&
-                        <div ref={cardFourRef} className="opacity-0 transition duration-700 absolute left-5 -bottom-20 cursor-none">
+                        <div ref={cardFourRef} className="opacity-0 transition duration-700 absolute lg:left-10 left-0 lg:-bottom-15 md:-bottom-10 -bottom-20 cursor-none">
                             <Lottie
                                 speed={0.8}
                                 height={270}
@@ -197,10 +198,10 @@ export const BentoGridItem = ({
                         </>
                     }
                     {id === 3 && (
-                        <div className="shadow-2xl gap-1 lg:gap-5 h-[90%] w-full mr-3 flex justify-center items-start py-3 -right-3 lg:-right-2">
-                            <div className="shadow-xl grid md:grid-cols-3 grid-cols-4 gap-2 lg:gap-1 ">
+                        <div className="shadow-2xl rounded-lg gap-1 lg:gap-5 h-[90%] w-full mr-3 flex justify-center items-start py-3 -right-3 lg:-right-2">
+                            <div className="grid md:grid-cols-3 grid-cols-4 gap-2 lg:gap-1 ">
                                 {skillsAll.map((item, i) =>(
-                                    <span key={item} className="hover:shadow-[0_0px_2px_3px_rgba(0,0,0,0.4)] duration-300 hover:bg-slate-800 py-1 lg:px-2 px-1 text-xs lg:text-base opacity-60 lg:opacity-70 rounded-lg text-center bg-[#10132E]">{item}</span>
+                                    <span key={item} className="hover:shadow-[0_0px_8px_3px_rgba(0,0,0,0.4)] text-slate-300 duration-500 hover:bg-slate-800 py-1 lg:px-2 px-1 text-xs lg:text-base opacity-60 lg:opacity-70 rounded-lg text-center bg-[#10132E]">{item}</span>
                                 ))}
                             </div>
                         </div>
@@ -260,17 +261,19 @@ const Blocker = ({fnMental}:{fnMental?: (val:any)=> void}) => {
         }
 
         timeoutRef.current = setTimeout(() => {
-            if (clickCount >= 29) {
+            if (clickCount >= 29 && clickCount < 41) {
                 setGlobeUnlocked(true)
                 setClear(true)
             }
-        }, 5000)
+        }, 6000)
     }
 
-    const goNuts = () =>{
-        setTimeout(()=>{
-            fnMental && fnMental(true)
-        }, 1000)
+    const goMental = () =>{
+        if(clickCount==45){
+            setTimeout(()=>{
+                fnMental && fnMental(true)
+            }, 3000)
+        }
         return true
     }
 
@@ -280,7 +283,7 @@ const Blocker = ({fnMental}:{fnMental?: (val:any)=> void}) => {
                 <div onClick={fnClick} className={`absolute ${blurred === true ? "bg-black-200  backdrop-filter backdrop-blur-lg saturate-150 bg-opacity-75" : ""} transition-all duration-700 lg:-ml-10 md:-mt-5 lg:-mb-7 p-5 -ml-6 md:-ml-8 w-[105%] h-[105%] z-30 flex `}>
                     <div className="lg:pt-0 md:pt-[50%] md:pr-0 z-40 w-full flex flex-col justify-start pr-10">
 
-                        {clickCount > 3 && clickCount < 7 && (<div className="lg:pt-[30%] md:pt-[50%] md:text-center md:pr-0 text-right pt-20 w-full">Try Harder</div>)}
+                        {clickCount >= 3 && clickCount < 7 && (<div className="lg:pt-[30%] md:pt-[50%] md:text-center md:pr-0 text-right pt-20 w-full">Try Harder</div>  )}
                         {clickCount >= 9 && clickCount < 13 && (<div className="lg:pt-[30%] md:pt-[50%] md:text-center md:pr-0 text-right pt-12 text-3xl w-full">Harder!</div>)}
                         {clickCount >= 15 && clickCount < 18 && (<div className="lg:pt-[30%] md:pt-[50%] md:text-center md:pr-0 text-right pt-28 w-full">Looks like nothing's happening right?</div>)}
                         {clickCount >= 20 && clickCount < 25 && (<div className="lg:pt-[30%] md:pt-[15%] md:text-center md:pr-0 text-right pt-1 text-xl font-sans font-extralight">Yes, progress at times go unnoticable, but it doesn't mean you should stop trying</div>)}
@@ -288,8 +291,11 @@ const Blocker = ({fnMental}:{fnMental?: (val:any)=> void}) => {
                         {clickCount >= 23 && clickCount < 25 && (<div className="md:pt-0 md:text-center md:pr-0 text-right text-xl font-sans font-normal">Click</div>)}
                         {clickCount >= 24 && clickCount < 25 && (<div className="md:pt-0 md:text-center md:pr-0 text-right  text-2xl font-sans font-bold">Counts!</div>)}
                         {clickCount >= 30 && clickCount < 40 && (<div className="md:pt-[50%] md:text-start text-right pt-10"> But don't forget to <span className="text-purple"> Take a break </span> here and there! <br></br> Its as crucial as <span className="text-purple"> Trying Hard</span></div>)}
-                        {clickCount >= 35 && clickCount < 40 && (<div className=" text-xl font-bold md:text-start text-right">Yeah you may stop now</div>)}
-                        {clickCount >= 45 && goNuts() && (<div className="md:pt-[30%] pt-[20%] text-2xl font-bold md:text-start text-right ">For christ's sake, CUT IT OUT!</div>)}
+                        {clickCount >= 35 && clickCount < 40 && (<div className=" text-xl font-bold md:text-start text-right">You gonna stop it?</div>)}
+                        {clickCount >= 40 && clickCount < 43 && (<div className="lg:pt-[30%] md:pt-[15%] text-xl font-bold md:text-start text-right">Don't say I didn't warn you!</div>)}
+                        {clickCount >= 41 && clickCount < 43 && (<div className="text-2xl font-extralight md:text-start text-right">Your browser may even crash</div>)}
+                        {clickCount >= 45 && goMental() && (<div className="md:pt-40 lg:pt-20 pt-4  text-2xl font-bold md:text-start text-right md:pl-5 pl-0 flex flex-col"><span>Congratulations! </span> <span className="text-base font-thin">You just disrupted space time continuum</span></div>)}
+                        {clickCount >= 42 && (<PiWarningFill className="animate-onOff absolute top-[45%] lg:left-[45%] left-[40%]" color="yellow" size={50}/>)}
                     </div>
                 </div>
             )}
