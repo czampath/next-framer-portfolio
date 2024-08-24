@@ -66,6 +66,31 @@
   }
 }
 
+@layer utilities {
+  /* Scrollbar for modern browsers */
+  ::-webkit-scrollbar {
+    width: .8rem;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #444; /* Darker scrollbar thumb */
+    border-radius: 25rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #1a1a1a; /* Darker scrollbar track */
+  }
+
+/* Scrollbar for Firefox */
+/* This part should be outside the @layer block */
+}
+
+body, div {
+  scrollbar-width: 2rem;
+  scrollbar-color: #444 #1a1a1a;
+}
+
 @layer base {
   * {
     @apply border-border !scroll-smooth;
