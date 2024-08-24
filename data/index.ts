@@ -10,10 +10,10 @@ export const gridItems = [
     id: 1,
     title: "Tech enthusiast with a passion for development, and with a proven track record",
     description: "",
-    className: "lg:col-span-3 md:col-span-6 md:row-span-5",
-    imgClassName: "w-full h-full transition duration-500",
+    className: "lg:col-span-3 md:col-span-6 md:row-span-5 md:h-full h-[60vw]",
+    imgClassName: "w-full h-full transition duration-500 ",
     titleClassName: "md:justify-end justify-start",
-    img: "./b1.png",
+    img: "./b1-alt.png",
     spareImg: "",
   },
   {

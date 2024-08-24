@@ -163,6 +163,15 @@ const config = {
           '20%':{ opacity: "0.3"},
           '90%':{ opacity: "0.3"},
         },
+        faderMd:{
+          '0%, 100%':{ opacity: "0.4"},
+          '50%':{ opacity: "0.4"},
+          '53%': { opacity: "0.7"},
+          '56%':{ opacity: "0.4"},
+          '59%':{ opacity: "0.7"},
+          '62%':{ opacity: "0.4"},
+          '90%':{ opacity: "0.4"},
+        },
         onOff:{
           '0%': { opacity: ".6"},
           '49%':{ opacity: ".6"},
@@ -224,6 +233,7 @@ const config = {
         fifth: "moveInCircle 20s ease infinite",
         scroll:"scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         fader: "fader 6s ease-in-out infinite",
+        faderMd: "faderMd 5s ease-in-out infinite",
         starShift: "starShift 25s ease-in-out infinite",
         float: 'float 10s infinite',
         snitchFloat: 'snitchFloat 40s infinite',
