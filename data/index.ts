@@ -60,7 +60,7 @@ export const gridItems = [
   },
   {
     id: 6,
-    title: "Do you want to start a project together?",
+    title: "Do you want to start hire me?",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-3",
     imgClassName: "",
@@ -114,7 +114,7 @@ export const testimonials = [
     quote:
       "He's a very hard worker and has always willing to go the extra mile for us because he cares about the product he's working on. He's also a really competent developer and, from what I've experienced, is able to come up with solutions/ different ways of implementing development if how we want something to work doesn't fit",
     name: "Sarah Field",
-    title: "General Manager - Assembly SMS",
+    title: "Project Manager - Assembly SMS",
   },
   {
     quote:
