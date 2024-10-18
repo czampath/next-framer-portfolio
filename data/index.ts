@@ -60,7 +60,7 @@ export const gridItems = [
   },
   {
     id: 6,
-    title: "Do you want to start hire me?",
+    title: "Feel free to get in touch!",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-3",
     imgClassName: "",

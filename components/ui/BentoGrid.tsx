@@ -9,8 +9,9 @@ import animationData from '@/data/confetti.json'
 import searchAnimationData from '@/data/mag-glass.json'
 import MagicButton from "./MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
-import { FaFileDownload } from "react-icons/fa";
+import { FaExternalLinkAlt, FaFileDownload } from "react-icons/fa";
 import { PiWarningFill } from "react-icons/pi";
+import { redirect } from "next/navigation";
 
 export const BentoGrid = ({
     className,
@@ -56,6 +57,7 @@ export const BentoGridItem = ({
 }) => {
 
     const [copied, setCopied] = useState(false);
+    const [redirected, setRedirected] = useState(false);
     const [hoverOneActive, setHoverOneActive] = useState(false)
     const [hoverFourActive, setHoverFourActive] = useState(false)
     const cardFourRef = useRef(null)
@@ -65,6 +67,16 @@ export const BentoGridItem = ({
     const handleCopy = () => {
         navigator.clipboard.writeText("csampath.work@gmail.com")
         setCopied(true)
+                    setTimeout(() => {
+                setCopied(false)
+            }, 5000) 
+    }
+    const openCalendlyURL = () => {
+        window.open("https://calendly.com/csampath-work/45min", "_blank");
+        setRedirected(true)
+        setTimeout(() => {
+            setRedirected(false)
+        }, 5000) 
     }
 
     useEffect(() => {
@@ -96,7 +108,7 @@ export const BentoGridItem = ({
     }, [hoverOneActive])
 
     const handleDownload = () => {
-        let resumeName = 'Resume_of_Chathuranga_Sampath-v2024_1.9.pdf'
+        let resumeName = 'Resume_of_Chathuranga_Sampath-v2024_1.11.pdf'
         const link = document.createElement('a');
         link.href = './'+ resumeName
         link.download = resumeName
@@ -109,13 +121,11 @@ export const BentoGridItem = ({
         }
     }
 
-    let skillRowOne = ['Java', 'Spring Boot',"Play Framework", 'PostgreSQL', 'Hibernate', "ActiveMQ"]
-    let skillRowTwo = ['React.js', 'Next.js', 'Node.js', 'TypeScript', 'HTML/CSS', 'Tailwind', "MobX"]
+    let skillRowOne = ['Java', 'Spring Boot',"Play Framework", 'PostgreSQL','MongoDB', 'Optimization', "ActiveMQ"]
+    let skillRowTwo = ['React.js', 'Next.js', 'Node.js', 'TypeScript', 'HTML/CSS', 'Tailwind CSS']
     let skillRowThree = ['THREE.js', "Python"]
 
     let skillsAll = skillRowOne.concat(skillRowTwo, skillRowThree)
-
-
 
     const cvContainerZoomed = {
         top: "0.00000001%",
@@ -299,6 +309,15 @@ export const BentoGridItem = ({
                                 position="left"
                                 otherClasses="`bg-[#161831]"
                                 handleClick={handleCopy}
+                            />
+                            <MagicButton
+                                
+                                title={redirected ? "Calendly URL opened" : "Book a Meeting (Calendly)"}
+                                icon={<FaExternalLinkAlt />}
+
+                                position="left"
+                                otherClasses="`bg-[#161831] p-0`"
+                                handleClick={openCalendlyURL}
                             />
                         </div>
                     )}
