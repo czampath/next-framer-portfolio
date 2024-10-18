@@ -20,6 +20,21 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+
+## Update the Resume
+
+1. Convert PDF to PNG: [PDF2PNG](https://pdf2png.com/)
+
+2. Edit Image in Photoshop. Project located at `D:\Cosmos\PhotoSpace\PS\Portfolio\CV.psd`
+
+3. Scale down PNG: [ResizePNG](https://onlinepngtools.com/resize-png)     Target: 999 x 2536
+
+4. Compress PNG [compresspng](https://compresspng.com/)     Target: ~500kb
+
+5. Rename png to `cv-redacted-md-min.png` and copy to `/public` folder
+
+6. Copy PDF to `/public` folder, update the PDF file name in `BentoGrid.tsx at handleDownload(){}`
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
