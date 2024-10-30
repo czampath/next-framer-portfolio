@@ -18,6 +18,7 @@ import octData from "@/data/oct.json"
 import animationData from '@/data/confetti.json'
 import { StarsBackground } from "@/components/ui/stars-background";
 import { ShootingStars } from "@/components/ui/shooting-starts";
+import Chatbot from "@/components/ChatBot";
 
 export default function Home() {
 
@@ -133,6 +134,8 @@ export default function Home() {
             <MyFloatingDiv isMental={mental}>
               <FloatingNav navItems={navItems} />
             </MyFloatingDiv>
+
+            <Chatbot  />
             
             <MyFloatingDiv isMental={mental}>
               <Hero />
