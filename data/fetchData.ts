@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const GITHUB_API_URL = 'https://raw.githubusercontent.com/czampath/data/refs/heads/main/json/next-framer-portfolio/data.json';
-const GITHUB_TOKEN = process.env.GITHUB_API_KEY; // Store your GitHub token in environment variables
+const GITHUB_TOKEN = process.env.GIT_HUB_API_KEY; // Store your GitHub token in environment variables
 
 
 export const fetchData = async () => {
