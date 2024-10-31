@@ -100,7 +100,7 @@ const Chatbot: React.FC = () => {
                     className=" duration-200 active:bg-slate-700 border rounded-lg flex-1 py-2 px-4"
                     placeholder="Ask me anything..."
                 />
-                <button type="submit" className="ml-2 py-2 px-5 bg-blue-500 text-white rounded-lg">
+                <button type="submit" className="ml-2 py-2 px-5 bg-blue-500 text-white rounded-lg" disabled={!input} >
                     Ask
                 </button>
             </form>
