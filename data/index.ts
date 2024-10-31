@@ -73,12 +73,12 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "Futuristic Dev Showcase: Next.js",
-    des: "Harnessing the power of Next.js and Aceternity UI to deliver a sleek, futuristic portfolio with cutting-edge visuals and seamless functionality",
-    img: "./next.png",
-    iconLists: ["./re.svg", "./ts.svg", "./tail.svg", "./ace.png", "./next.svg"],
+    title: "Star Citizen Routes Coordinator",
+    des: "Collect items across the verse, with the ultimate route revealed in a sleek design powered by Next.js 14.",
+    img: "./ez-routes.png",
+    iconLists: [ "./next.svg", "./ts.svg", "./tail.svg", "./ace.png","./three.svg"],
     linkType: "live",
-    link: "https://czampath.github.io/next-framer-portfolio/",
+    link: "https://sc-ez-routes.vercel.app/",
   },
   {
     id: 2,

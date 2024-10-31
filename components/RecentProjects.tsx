@@ -18,6 +18,7 @@ const RecentProjects = () => {
                             <img src='./bg.png' alt='./bg.png'/>
                         </div>
                         <img src={img} alt={title} className='z-10 absolute bottom-0'/>
+                        {id === 1 && <div className="absolute text-white-100 bottom-0 right-0 w-min h-min text-md z-10 text-nowrap py-0 px-6 bg-green-900 rounded-lg font-sans">In progress</div> }
                     </div>
                     <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">{title}</h1>
                     <p className='lg:text-xl lg:font-normal font-light text-sm line-clamp-2'>{des}</p>
@@ -32,7 +33,7 @@ const RecentProjects = () => {
                             ))}
                         </div>
                         <div className='flex justify-center items-center'>
-                            <p className='flex lg:text-xl md:text-xl text-sm text-purple'> {linkType==="live" ? "Check Live Site" : linkType==="request" ? "Request Demo" : "Check GitHub Repo"} </p>
+                            <p className='flex lg:text-xl md:text-xl text-sm text-purple'> {linkType==="live" ? "Visit Live Site" : linkType==="request" ? "Request Demo" : "Visit GitHub Repo"} </p>
                             <FaLocationArrow className='ms-3' color='#CBACF9'/>
                         </div>
                     </div>
