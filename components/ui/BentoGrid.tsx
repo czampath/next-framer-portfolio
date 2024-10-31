@@ -11,7 +11,7 @@ import MagicButton from "./MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
 import { FaExternalLinkAlt, FaFileDownload } from "react-icons/fa";
 import { PiWarningFill } from "react-icons/pi";
-import { redirect } from "next/navigation";
+import Chatbot from "../ChatBot";
 
 export const BentoGrid = ({
     className,
@@ -207,7 +207,7 @@ export const BentoGridItem = ({
                                 onMouseEnter={() => onCVMouseEnter(id ?? -1, true)}  
                                 onMouseLeave={() => onCVMouseEnter(id ?? -1, false)}  
                                onClick={() => onCVClick(id ?? -1)} 
-                             className="absolute bg-transparent cursor-pointer md:w-[50rem] w-[25rem]  md:h-[49rem] h-[28rem]" style={cvOverlayStyles}></div>
+                             className={`absolute bg-transparent cursor-pointer md:w-[50rem] w-[25rem]  md:h-[49rem] h-[28rem] text-3xl md:text-7xl font-bold flex items-center justify-center text-white-100 pt-[40%] duration-500 ${!toggleZoom ? 'opacity-100' : 'opacity-0'}`} style={cvOverlayStyles}>Click Me 👆🏻</div>
                             </>
                     )}
                 </div>
@@ -223,19 +223,19 @@ export const BentoGridItem = ({
                 )}>
                     {id === 5 ?
                         <>
-                            <div className="md:w-[90%] w-[60%] font-sans font-bold text-lg lg:text-xl max-w-96 z-10 pt-0 select-none">
+                            <div className="md:w-[90%] w-[60%] text-left font-sans font-bold text-lg lg:text-xl max-w-96 z-10 pt-0 select-none">
                                 {title}
                             </div>
-                            <div className="md:w-[90%] w-[60%] font-sans font-extralight text-[#c1c2c3] text-sm md:text-xs lg:text-base z-10 select-none">
+                            <div className="md:w-[90%] w-[60%] text-left font-sans font-extralight text-[#c1c2c3] text-sm md:text-xs lg:text-base z-10 select-none">
                                 {description}
                             </div>
                         </> :
                         <div className={`${id === 1 && 'md:flex-row flex-col gap-4'} flex justify-between pr-4`}>
                             <div className="flex flex-col">
-                                <div className="font-sans font-extralight text-[#c1c2c3] text-sm md:text-xs lg:text-base z-10 select-none">
+                                <div className="text-left font-sans font-extralight text-[#c1c2c3] text-sm md:text-xs lg:text-base z-10 select-none">
                                     {description}
                                 </div>
-                                <div className="font-sans font-bold text-lg lg:text-xl max-w-96 z-10 pt-0 select-none">
+                                <div className="text-left font-sans font-bold text-lg lg:text-xl max-w-96 z-10 pt-0 select-none">
                                     {title}
                                 </div>
                             </div>
@@ -249,8 +249,8 @@ export const BentoGridItem = ({
                                         </span>
                                     </button>
                                 </div>}
-                        </div>}
-
+                        </div>
+                    }
 
                     {id === 4 &&
                         <div ref={cardFourRef} className="opacity-0 transition duration-700 absolute lg:left-10 left-0 lg:-bottom-15 md:-bottom-10 -bottom-20 cursor-none">
@@ -321,6 +321,8 @@ export const BentoGridItem = ({
                             />
                         </div>
                     )}
+
+                    {id === 7 && (<Chatbot/>)}
                 </div>
             </div>
         </div>

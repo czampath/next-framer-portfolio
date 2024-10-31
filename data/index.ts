@@ -68,6 +68,16 @@ export const gridItems = [
     img: "",
     spareImg: "",
   },
+  {
+    id: 7,
+    title: "Let AI speak on my behalf (Experimental)",
+    description: "Wanna find out more about me?",
+    className: "md:col-span-5 sm:row-span-5 md:row-span-4",
+    imgClassName: "",
+    titleClassName: "justify-start md:max-w-full w-full text-nowrap text-center cursor-pointer",
+    img: "",
+    spareImg: "",
+  },
 ];
 
 export const projects = [
@@ -87,7 +97,7 @@ export const projects = [
     img: "./home-app-2.png",
     iconLists: ["./cpp.png", "./py.png", "./nd.png", "./ar.png", "./sb.png"],
     linkType: "request",
-    link: "https://github.com/czampath",
+    link: "https://forms.gle/pigugHfE4S8Q7aZb8",
   },
   {
     id: 3,

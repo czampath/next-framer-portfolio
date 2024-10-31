@@ -81,29 +81,31 @@ const Chatbot: React.FC = () => {
     };
 
     return (
-        <div className="hover:ring-2 duration-300 p-4 border rounded-lg fixed z-30 bg-slate-800 w-[30vw] bottom-2 left-2 max-h-[50vh] overflow-y-auto shadow-[0_0_10px_2px_rgba(0,0,0,0.5)]">
-            <div className="flex flex-col space-y-4">
-                {messages.map((msg, index) => (
-                    <div key={index}>
-                        <p className="font-bold">You:</p>
-                        <p>{msg.user}</p>
-                        <p className="font-bold">Phantom:</p>
-                        <p>{msg.bot}</p>
-                    </div>
-                ))}
+        <div className='w-full h-full flex items-center justify-center'>
+            <div className="hover:ring-2 duration-300 p-4 border rounded-lg z-30 bg-slate-800 w-full md:w-[80%] text-left m-3 max-h-[50vh] md:max-h-[90%] overflow-y-auto shadow-[0_0_10px_2px_rgba(0,0,0,0.5)]">
+                <div className="flex flex-col space-y-4">
+                    {messages.map((msg, index) => (
+                        <div key={index}>
+                            <p className="font-bold">You:</p>
+                            <p>{msg.user}</p>
+                            <p className="font-bold">Phantom:</p>
+                            <p>{msg.bot}</p>
+                        </div>
+                    ))}
+                </div>
+                <form onSubmit={handleSubmit} className="mt-4 flex">
+                    <input
+                        type="text"
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        className=" duration-200 active:bg-slate-700 border rounded-lg flex-1 py-2 px-4"
+                        placeholder="Ask me anything..."
+                    />
+                    <button type="submit" className="ml-2 py-2 px-5 bg-blue-500 text-white rounded-lg" disabled={!input} >
+                        Ask
+                    </button>
+                </form>
             </div>
-            <form onSubmit={handleSubmit} className="mt-4 flex">
-                <input
-                    type="text"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    className=" duration-200 active:bg-slate-700 border rounded-lg flex-1 py-2 px-4"
-                    placeholder="Ask me anything..."
-                />
-                <button type="submit" className="ml-2 py-2 px-5 bg-blue-500 text-white rounded-lg" disabled={!input} >
-                    Ask
-                </button>
-            </form>
         </div>
     );
 };
