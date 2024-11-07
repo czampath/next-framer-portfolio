@@ -74,7 +74,7 @@ const Chatbot: React.FC = () => {
         }catch(err){
             setMessages((prev) => {
                 const updated = [...prev];
-                updated[updated.length - 1].bot = "There was an error, Please try again";
+                updated[updated.length - 1].bot = "Oops! There was an error, Please try again";
                 return updated;
             });
         }
@@ -82,14 +82,14 @@ const Chatbot: React.FC = () => {
 
     return (
         <div className='w-full h-full flex items-center justify-center'>
-            <div className="hover:ring-2 duration-300 p-4 border rounded-lg z-30 bg-slate-800 w-full md:w-[80%] text-left m-3 max-h-[50vh] md:max-h-[90%] overflow-y-auto shadow-[0_0_10px_2px_rgba(0,0,0,0.5)]">
-                <div className="flex flex-col space-y-4">
-                    {messages.map((msg, index) => (
+            <div className="hover:ring-2 duration-300 p-4 border rounded-lg z-30 bg-slate-800 w-full md:w-[80%] text-left  shadow-[0_0_10px_2px_rgba(0,0,0,0.5)]">
+                <div className="flex flex-col-reverse space-y-4 text-wrap overflow-y-auto m-3  h-full max-h-[30vh] md:max-h-[23vh]">
+                    {messages.slice().reverse().map((msg, index) => (
                         <div key={index}>
-                            <p className="font-bold">You:</p>
-                            <p>{msg.user}</p>
-                            <p className="font-bold">Phantom:</p>
-                            <p>{msg.bot}</p>
+                            <p className="font-bold text-amber-300">You:</p>
+                            <p className="font-bold text-amber-300 mb-3"> {msg.user}</p>
+                            <p className="font-bold text-green-300">Me:</p>
+                            <p className="font-medium text-white-100 mb-3">{msg.bot}</p>
                         </div>
                     ))}
                 </div>
