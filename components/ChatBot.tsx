@@ -63,7 +63,7 @@ const Chatbot: React.FC = () => {
                 console.log('parsedJson is a json array');
             }
             stage_2_msg["system"] += JSON.stringify(detailsJson);
-            const st2Response = await axios.post('/api/chat', { message: stage_2_msg});
+            const st2Response = await axios.post('/api/chat', { message: stage_2_msg, tokens: 300 });
             const stage2BotResponse = st2Response.data.message;
 
             setMessages((prev) => {

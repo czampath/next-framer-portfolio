@@ -72,7 +72,7 @@ export const gridItems = [
     id: 7,
     title: "Let AI speak on my behalf (Experimental)",
     description: "Wanna find out more about me?",
-    className: "md:col-span-5 sm:row-span-5 md:row-span-4",
+    className: "md:col-span-5 row-span-4 md:row-span-5",
     imgClassName: "",
     titleClassName: "justify-start md:max-w-full w-full text-nowrap text-center cursor-pointer",
     img: "",
