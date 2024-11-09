@@ -258,7 +258,7 @@ export const BentoGridItem = ({
                                 speed={0.8}
                                 height={270}
                                 isClickToPauseDisabled={true}
-                                style={{cursor: "default"}}
+                                style={{cursor: "none"}}
                                 options={
                                     {   
                                         
@@ -285,7 +285,7 @@ export const BentoGridItem = ({
                                 {skillsAll.map((item, i) =>(
                                     <span key={item.split(',')[0]} className="relative group hover:shadow-[0_0px_8px_3px_rgba(0,0,0,0.4)] text-slate-300 duration-500 hover:bg-slate-800 py-1 lg:px-2 px-1 text-xs lg:text-base opacity-60 lg:opacity-70 rounded-lg text-center bg-[#10132E]">
                                         {item.split(',')[0] } 
-                                        <span className="bg-slate-500 text-white h-6 w-6 opacity-0 group-hover:opacity-100 duration-200 absolute right-1 -top-4 rounded-full px-5 flex justify-center">
+                                        <span className="bg-slate-500 text-white h-6 w-6 opacity-0 group-hover:opacity-100 duration-200 absolute -right-2 -top-4 rounded-full px-5 py-0 flex justify-center items-center">
                                             {item.split(',')[1]}
                                         </span>
                                     </span>

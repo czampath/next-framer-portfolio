@@ -41,7 +41,7 @@ export const gridItems = [
     id: 4,
     title: "With a keen eye for attention to details",
     description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+    className: "lg:col-span-2 md:col-span-3 md:row-span-2 cursor-none",
     imgClassName: "",
     titleClassName: "justify-start",
     img: "./grid.svg",
