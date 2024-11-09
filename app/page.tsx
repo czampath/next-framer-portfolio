@@ -1,6 +1,5 @@
 'use client'
 
-import Approach from "@/components/Approach";
 import Clients from "@/components/Clients";
 import Experience from "@/components/Experience";
 import MyFloatingDiv from "@/components/FloatingDiv";
@@ -152,10 +151,6 @@ export default function Home() {
 
             <MyFloatingDiv isMental={mental}>
               <Experience />
-            </MyFloatingDiv>
-
-            <MyFloatingDiv isMental={mental}>
-              <Approach />
             </MyFloatingDiv>
 
             <MyFloatingDiv isMental={mental}>
