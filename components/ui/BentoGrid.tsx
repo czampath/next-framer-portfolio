@@ -108,7 +108,7 @@ export const BentoGridItem = ({
     }, [hoverOneActive])
 
     const handleDownload = () => {
-        let resumeName = 'Resume_of_Chathuranga_Sampath-v2024_1.11.pdf'
+        let resumeName = 'Resume_of_Chathuranga_Sampath-v2024_1.13.pdf'
         const link = document.createElement('a');
         link.href = './'+ resumeName
         link.download = resumeName
