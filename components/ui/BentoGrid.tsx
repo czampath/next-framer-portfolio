@@ -121,9 +121,9 @@ export const BentoGridItem = ({
         }
     }
 
-    let skillRowOne = ['Java', 'Spring Boot',"Play Framework", 'PostgreSQL','MongoDB', 'Optimization', "ActiveMQ"]
-    let skillRowTwo = ['React.js', 'Next.js', 'Node.js', 'TypeScript', 'HTML/CSS', 'Tailwind CSS']
-    let skillRowThree = ['THREE.js', "Python"]
+    let skillRowOne = ['Java,6y', 'Spring Boot,5y',"Play Framework,5y", 'PostgreSQL,5y','MongoDB,1y', 'Optimization,3y', "ActiveMQ,2y"]
+    let skillRowTwo = ['React.js,3y', 'Next.js,1y', 'Node.js,2y', 'TypeScript,3y', 'HTML/CSS,6y', 'Tailwind CSS,1y']
+    let skillRowThree = ['THREE.js,1y', "Python,1y"]
 
     let skillsAll = skillRowOne.concat(skillRowTwo, skillRowThree)
 
@@ -281,9 +281,14 @@ export const BentoGridItem = ({
                     }
                     {id === 3 && (
                         <div className="shadow-2xl rounded-lg gap-1 lg:gap-5 h-[90%] w-full mr-3 flex justify-center items-start py-3 -right-3 lg:-right-2">
-                            <div className="grid md:grid-cols-3 grid-cols-4 gap-2 lg:gap-1 ">
+                            <div className="grid md:grid-cols-3 grid-cols-4 gap-2 lg:gap-1">
                                 {skillsAll.map((item, i) =>(
-                                    <span key={item} className="hover:shadow-[0_0px_8px_3px_rgba(0,0,0,0.4)] text-slate-300 duration-500 hover:bg-slate-800 py-1 lg:px-2 px-1 text-xs lg:text-base opacity-60 lg:opacity-70 rounded-lg text-center bg-[#10132E]">{item}</span>
+                                    <span key={item.split(',')[0]} className="relative group hover:shadow-[0_0px_8px_3px_rgba(0,0,0,0.4)] text-slate-300 duration-500 hover:bg-slate-800 py-1 lg:px-2 px-1 text-xs lg:text-base opacity-60 lg:opacity-70 rounded-lg text-center bg-[#10132E]">
+                                        {item.split(',')[0] } 
+                                        <span className="bg-slate-500 text-white h-6 w-6 opacity-0 group-hover:opacity-100 duration-200 absolute right-1 -top-4 rounded-full px-5 flex justify-center">
+                                            {item.split(',')[1]}
+                                        </span>
+                                    </span>
                                 ))}
                             </div>
                         </div>
