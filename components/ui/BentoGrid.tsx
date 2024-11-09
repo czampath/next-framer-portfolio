@@ -373,7 +373,7 @@ const Blocker = ({fnMental}:{fnMental?: (val:any)=> void}) => {
     return (
         <>
             {globeUnlocked !== true && (
-                <div onClick={fnClick} className={`absolute ${blurred === true ? "bg-black-200  backdrop-filter backdrop-blur-lg saturate-150 bg-opacity-75" : ""} transition-all duration-700 lg:-ml-10 md:-mt-5 lg:-mb-7 p-5 -ml-6 md:-ml-8 w-[105%] h-[105%] z-30 flex `}>
+                <div onClick={fnClick} className={`absolute ${blurred === true ? "bg-black-200  backdrop-filter backdrop-blur-lg saturate-150 bg-opacity-75" : ""} cursor-grab active:cursor-grabbing transition-all duration-700 lg:-ml-10 md:-mt-5 lg:-mb-7 p-5 -ml-6 md:-ml-8 w-[105%] h-[105%] z-30 flex `}>
                     <div className="lg:pt-0 md:pt-[50%] md:pr-0 z-40 w-full flex flex-col justify-start pr-10">
 
                         {clickCount >= 3 && clickCount < 7 && (<div className="lg:pt-[30%] md:pt-[50%] md:text-center md:pr-0 text-right pt-20 w-full">Try Harder</div>  )}
