@@ -12,6 +12,7 @@ import { IoCopyOutline } from "react-icons/io5";
 import { FaExternalLinkAlt, FaFileDownload } from "react-icons/fa";
 import { PiWarningFill } from "react-icons/pi";
 import Chatbot from "../ChatBot";
+import DownloadResume from "../DownloadResume";
 
 export const BentoGrid = ({
     className,
@@ -107,19 +108,7 @@ export const BentoGridItem = ({
         }
     }, [hoverOneActive])
 
-    const handleDownload = () => {
-        let resumeName = 'Resume_of_Chathuranga_Sampath-v2024_1.13.pdf'
-        const link = document.createElement('a');
-        link.href = './'+ resumeName
-        link.download = resumeName
-        link.id = 'download-link'
-        document.body.appendChild(link)
-        link.click()
-        const linkToRemove = document.getElementById('download-link')
-        if (linkToRemove) {
-            document.body.removeChild(linkToRemove)
-        }
-    }
+
 
     let skillRowOne = ['Java,6y', 'Spring Boot,5y',"Play Framework,5y", 'PostgreSQL,5y','MongoDB,1y', 'Optimization,3y', "ActiveMQ,2y"]
     let skillRowTwo = ['React.js,3y', 'Next.js,1y', 'Node.js,2y', 'TypeScript,3y', 'HTML/CSS,6y', 'Tailwind CSS,1y']
@@ -240,15 +229,7 @@ export const BentoGridItem = ({
                                 </div>
                             </div>
                             {id === 1 && hoverOneActive &&
-                                <div className="flex md:justify-center justify-start  items-center">
-
-                                    <button onClick={handleDownload} className="inline-flex h-12 md:py-7 py-0 px-6 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%]  font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-                                        Download Resume
-                                        <span className="pl-2">
-                                            <FaFileDownload />
-                                        </span>
-                                    </button>
-                                </div>}
+                                <DownloadResume/>}
                         </div>
                     }
 
