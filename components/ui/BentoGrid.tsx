@@ -13,6 +13,7 @@ import { FaExternalLinkAlt, FaFileDownload } from "react-icons/fa";
 import { PiWarningFill } from "react-icons/pi";
 import Chatbot from "../ChatBot";
 import DownloadResume from "../DownloadResume";
+import Image from "next/image";
 
 export const BentoGrid = ({
     className,
@@ -308,7 +309,22 @@ export const BentoGridItem = ({
                         </div>
                     )}
 
-                    {id === 7 && (<Chatbot/>)}
+                    {id === 7 && (
+                        <>
+                            <Chatbot/>
+                            <div className="w-full h-full absolute flex items-end justify-end p-10 opacity-75">
+                                <a href="https://groq.com" className="w-auto h-[15%]" target="_blank" rel="noopener noreferrer">
+                                    <Image
+                                        className="h-full w-auto"
+                                        src="https://groq.com/wp-content/uploads/2024/03/PBG-mark1-color.svg"
+                                        alt="Powered by Groq for fast inference."
+                                        width={0}
+                                        height={0}
+                                    />
+                                </a>
+                            </div>
+                        </>
+                        )}
                 </div>
             </div>
         </div>

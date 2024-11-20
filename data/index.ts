@@ -74,7 +74,7 @@ export const gridItems = [
     description: "Wanna find out more about me?",
     className: "md:col-span-5 row-span-4 md:row-span-5",
     imgClassName: "",
-    titleClassName: "justify-start md:max-w-full w-full text-nowrap text-center cursor-pointer",
+    titleClassName: "justify-start md:max-w-full w-full text-nowrap text-center",
     img: "",
     spareImg: "",
   },
