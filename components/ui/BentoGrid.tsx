@@ -111,8 +111,8 @@ export const BentoGridItem = ({
 
 
 
-    let skillRowOne = ['Java,6y', 'Spring Boot,5y',"Play Framework,5y", 'PostgreSQL,5y','MongoDB,1y', 'Optimization,3y', "ActiveMQ,2y"]
-    let skillRowTwo = ['React.js,3y', 'Next.js,1y', 'Node.js,2y', 'TypeScript,3y', 'HTML/CSS,6y', 'Tailwind CSS,1y']
+    let skillRowOne = ['Java,6y', 'Spring Boot,5y',"Play Framework,5y", 'PostgreSQL,5y','MongoDB,1y', 'Optimization,3y']
+    let skillRowTwo = ["JavaScript,6y", 'React.js,3y', 'Next.js,1y', 'Node.js,2y', 'TypeScript,3y', 'HTML/CSS,6y', 'Tailwind CSS,1y']
     let skillRowThree = ['THREE.js,1y', "Python,1y"]
 
     let skillsAll = skillRowOne.concat(skillRowTwo, skillRowThree)
