@@ -2,7 +2,7 @@ import React from 'react'
 import { FaFileDownload } from 'react-icons/fa'
 
 const handleDownload = () => {
-  let resumeName = 'Resume_of_Chathuranga_Sampath-v2024_1.17.pdf'
+  let resumeName = 'Resume_of_Chathuranga_Sampath-v2024_1.18.pdf'
   const link = document.createElement('a');
   link.href = './'+ resumeName
   link.download = resumeName

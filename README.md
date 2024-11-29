@@ -27,7 +27,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 2. Edit Image in Photoshop. Project located at `D:\Cosmos\PhotoSpace\PS\Portfolio\CV.psd`
 
-3. Scale down PNG: [ResizePNG](https://onlinepngtools.com/resize-png)     Target: 999 x 2536
+3. #DEPRECATED - (Resize within AdobePS) Scale down PNG: [ResizePNG](https://onlinepngtools.com/resize-png)     Target: 999 x 2536
 
 4. Compress PNG [compresspng](https://compresspng.com/)     Target: ~500kb
 
