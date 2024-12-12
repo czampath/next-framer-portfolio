@@ -33,7 +33,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 5. Rename png to `cv-redacted-md-min.png` and copy to `/public` folder
 
-6. Copy PDF to `/public` folder, update the PDF file name in `BentoGrid.tsx at handleDownload(){}`
+6. Copy PDF to `/public` folder, update the PDF file name in `handleDownload() at components\DownloadResume.tsx`
 
 ## Learn More
 
