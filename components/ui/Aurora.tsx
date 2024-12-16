@@ -1,4 +1,5 @@
 "use client";
+import useFPS from "@/hooks/useFPS";
 import { cn } from "@/lib/utils";
 import React from "react";
 
@@ -11,8 +12,14 @@ export const AuroraBackground = ({
   showRadialGradient = true,
   ...props
 }: AuroraBackgroundProps) => {
-  return (
+  const fps = useFPS();
 
+  if(fps < 50){
+    return (<></>)
+  }
+
+  return (
+    
       <div
         className={cn(
           "flex flex-col items-center justify-center text-slate-950 transition-bg fixed",

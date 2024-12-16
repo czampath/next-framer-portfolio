@@ -1,13 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Spotlight } from './ui/Spotlight'
 import { TextGenerateEffect } from './ui/text-generate-effect'
 import MagicButton from './ui/MagicButton'
 import { FaLocationArrow } from 'react-icons/fa'
+import { useStatContext } from '@/context/StatContext'
 
 const Hero = () => {
+    const [activator, setActivator] = useState<number>(0);
+    const {toggleDebug} = useStatContext();
+
+    useEffect(()=>{
+        console.log("activator: "  + activator)
+        if(activator==10){
+            console.log("Here")
+            setActivator(0)
+            toggleDebug()
+        }
+    },[activator, toggleDebug])
+
+    const handleClicks = () =>{
+        setActivator( activator + 1)
+    }
+
     return (
         <div className="pd-20 pt-36 select-none">
             <div>
+                
                 <Spotlight className='-top-40 -left-10 md:-left-32 md:-top-20 h-screen' fill='white' />
                 <Spotlight className='-top-10 left-full md:-left-32 h-[80vh] w-[50vw]' fill='purple' />
                 <Spotlight className='top-28 left-80 h-[80vh] w-[50vw]' fill='blue' />
@@ -17,7 +35,7 @@ const Hero = () => {
                     {/* Radial gradient for the container to give a faded look */}
                     <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
                 </div>
-                <div className='flex justify-center relative mb-20 z-20'>
+                <div className='flex justify-center relative mb-20 z-20' onClick={handleClicks}>
                     <div className='max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center'>
                         <h2 className='uppercase tracking-widest text-xs text-center text-blue-100 w-full'>A glimpse of Dynamic WEB MAGIC via NEXT.JS + Tailwind CSS</h2>
                         <TextGenerateEffect

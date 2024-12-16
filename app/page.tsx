@@ -17,6 +17,8 @@ import octData from "@/data/oct.json"
 import animationData from '@/data/confetti.json'
 import { StarsBackground } from "@/components/ui/stars-background";
 import { ShootingStars } from "@/components/ui/shooting-starts";
+import FpsStat from "@/components/FpsStat";
+import { useStatContext } from "@/context/StatContext";
 
 export default function Home() {
 
@@ -26,6 +28,7 @@ export default function Home() {
   const prevStage = useRef(0)
   const stagingClass = useRef("")
   const [currentStyle,setCurrentStyle] = useState(stagingClass.current)
+  const {setDebug} = useStatContext();
 
   let styles = [" brightness-[10]"," contrast-[2]", " invert", ""]
 
@@ -64,7 +67,6 @@ export default function Home() {
     }
     setCurrentStyle(stagingClass.current)
   }
-
 
   const fnMent = (val:any) => {
     window?.localStorage.setItem("mental", JSON.stringify(val))
@@ -105,23 +107,28 @@ export default function Home() {
   }
 
   useEffect(()=>{
-    let val:boolean | null
+    let mentalVal:boolean | null
+    let debugVal:boolean | null
     if(window===undefined){
-      val = JSON.parse(localStorage.getItem("mental") ?? "false")
+      mentalVal = JSON.parse(localStorage.getItem("mental") ?? "false")
+      debugVal = JSON.parse(localStorage.getItem("debug") ?? "false")
       console.log("no window")
     }else{
-      val = JSON.parse(window.localStorage.getItem("mental") ?? "false")
+      mentalVal = JSON.parse(window.localStorage.getItem("mental") ?? "false")
+      debugVal = JSON.parse(window.localStorage.getItem("debug") ?? "false")
       console.log("with window")
     }
-    console.log(val)
-    setMental(val ?? false);
+    console.log("mental: " + mentalVal)
+    console.log("debug: " + debugVal)
+    setMental(mentalVal ?? false);
+    setDebug(debugVal ?? false);
   },[])
 
 
   return (
     <main className={`relative duration-1000 ${currentStyle} bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5`}>
+      <FpsStat/>
       <div className={`max-w-7xl w-full ${mental===true ? "h-screen pt-[10%]" : "h-full"}`}>
-        
           <>
             {mental===true && (
               <div className="overflow-hidden">
@@ -134,7 +141,7 @@ export default function Home() {
             </MyFloatingDiv>
             
             <MyFloatingDiv isMental={mental}>
-              <Hero />
+              <Hero/>
             </MyFloatingDiv>
 
             <MyFloatingDiv isMental={mental}>

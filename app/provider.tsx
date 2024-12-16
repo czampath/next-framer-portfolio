@@ -3,13 +3,16 @@ import { ThemeProvider as NextThemesProvider } from "next-themes"
 import { type ThemeProviderProps } from "next-themes/dist/types"
 import { DevDetailsProvider } from "../context/DevDetailsContext"
 import { fetchData } from "@/data/fetchData"
+import { StatContextProvider } from "@/context/StatContext"
 
 export async function ThemeProvider({ children, ...props }: ThemeProviderProps) {
-  const data = await fetchData()
+  const devData = await fetchData()
 
   return <NextThemesProvider {...props}>
-    <DevDetailsProvider data={data}>
-      {children}
+    <DevDetailsProvider data={devData}>
+      <StatContextProvider>
+        {children}
+      </StatContextProvider>
     </DevDetailsProvider>
   </NextThemesProvider>
 }
