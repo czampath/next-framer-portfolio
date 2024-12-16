@@ -1,6 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    dangerouslyAllowSVG: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cz-git-anim.vercel.app',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'groq.com',
+        pathname: '**',
+      }
+    ]
+  },
 };
 
 module.exports = nextConfig;

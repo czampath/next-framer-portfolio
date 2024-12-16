@@ -2,6 +2,7 @@ import { projects } from '@/data'
 import React from 'react'
 import { PinContainer } from './ui/3d-pin'
 import { FaLocationArrow } from 'react-icons/fa'
+import Image from 'next/image';
 
 const RecentProjects = () => {
   return (
@@ -10,14 +11,23 @@ const RecentProjects = () => {
             <span className='text-purple'> recent projects</span>
         </h1>
         <div className='flex flex-wrap items-center justify-center p-4 gap-24 lg:gap-y-24 lg:gap-x-32 mt-10'>
-            {projects.map(({id,title,des,img,iconLists,linkType,link})=>(
+            {projects.map(({id,title,des,img,iconLists,linkType,link,imgClassName})=>(
                 <div key={id} className='sm:h-[32rem] h-[32rem] z-20 flex items-center justify-center sm:w-[32rem] w-[80vw] lg:mb-0 mb-5 transition duration-1000 ease-in-out md:hover:scale-[1.5] lg:hover:scale-[1.3]'>
                     <PinContainer title={link} href={link}>
                     <div className="relative flex items-center justify-center sm:w-[32rem] w-[80vw] overflow-hidden h-[30vh] sm:h-[25vh] lg:h-[22vh] mb-10 transition duration-500 ease-in-out hover:opacity-40">
                         <div className="relative w-full h-full overflow-hidden rounded-xl lg:rounded-3xl bg-[#13162d]">
                             <img src='./bg.png' alt='./bg.png'/>
                         </div>
-                        <img src={img} alt={title} className='z-10 absolute bottom-0'/>
+                        <Image 
+                            src={img} 
+                            alt={title} 
+                            className={`z-10 absolute bottom-0 ${imgClassName}`} 
+                            layout="responsive"
+                            width={1} 
+                            height={1}  
+                            objectFit="cover"  
+                            />
+                        {/* <img src={img} alt={title} className={`"z-10 absolute bottom-0 " ${imgClassName}`}/> */}
                         {id === 1 && <div className="absolute text-white-100 bottom-0 right-0 w-min h-min text-md z-10 text-nowrap py-0 px-6 bg-green-900 rounded-lg font-sans">In progress</div> }
                     </div>
                     <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">{title}</h1>
