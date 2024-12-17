@@ -18,6 +18,7 @@ const RecentProjects = () => {
                         <div className="relative w-full h-full overflow-hidden rounded-xl lg:rounded-3xl bg-[#13162d]">
                             <img src='./bg.png' alt='./bg.png'/>
                         </div>
+                        {id === 2 ? <img src={img} alt={title} className={`"z-10 absolute bottom-0 " ${imgClassName}`}/> : 
                         <Image 
                             src={img} 
                             alt={title} 
@@ -27,7 +28,7 @@ const RecentProjects = () => {
                             height={1}  
                             objectFit="cover"  
                             />
-                        {/* <img src={img} alt={title} className={`"z-10 absolute bottom-0 " ${imgClassName}`}/> */}
+                        }
                         {id === 1 && <div className="absolute text-white-100 bottom-0 right-0 w-min h-min text-md z-10 text-nowrap py-0 px-6 bg-green-900 rounded-lg font-sans">In progress</div> }
                     </div>
                     <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">{title}</h1>

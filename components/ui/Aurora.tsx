@@ -14,12 +14,11 @@ export const AuroraBackground = ({
 }: AuroraBackgroundProps) => {
   const fps = useFPS();
 
-  if(fps < 50){
+  if(fps < 80){
     return (<></>)
   }
 
   return (
-    
       <div
         className={cn(
           "flex flex-col items-center justify-center text-slate-950 transition-bg fixed",

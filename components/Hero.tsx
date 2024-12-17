@@ -10,9 +10,7 @@ const Hero = () => {
     const {toggleDebug} = useStatContext();
 
     useEffect(()=>{
-        console.log("activator: "  + activator)
         if(activator==10){
-            console.log("Here")
             setActivator(0)
             toggleDebug()
         }

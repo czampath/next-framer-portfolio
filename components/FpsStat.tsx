@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react'
 
 const FpsStat = () => {
 
-    const { isDebug, toggleMental } = useStatContext();
+    const { isDebug, isMental, setMental } = useStatContext();
     const fps = useFPS();
     const [fpsHistory, setFpsHistory] = useState<number[]>([]);
     const [averageFPS, setAverageFps] = useState<number>(fps);
@@ -27,13 +27,17 @@ const FpsStat = () => {
 
     useEffect(() => {
         if (averageFPS < 20) {
-            toggleMental();
+            console.log("CHEAAP AS DEVICE YOU HAVE!")
+            setMental(false);
         }
-    }, [averageFPS, toggleMental])
+    }, [averageFPS, isMental, setMental])
 
     return (
         <>
-            {isDebug ? <div className="fixed top-0 left-0 z-50">{"FPS: " + fps + " | AvgFPS: " + averageFPS + " | Aurora-Threashold : 50 | Mental Threashold : 20"}</div> : <></>}
+            {isDebug ? 
+            <div className="fixed top-0 left-0 z-50">
+                <span>{"FPS: " + fps + " | AvgFPS: " + averageFPS + " | Aurora-Threashold : 80 | Mental Threashold : 20"}</span>
+            </div> : <></>}
         </>
     )
 }
