@@ -9,11 +9,12 @@ import animationData from '@/data/confetti.json'
 import searchAnimationData from '@/data/mag-glass.json'
 import MagicButton from "./MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
-import { FaExternalLinkAlt, FaFileDownload } from "react-icons/fa";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import { PiWarningFill } from "react-icons/pi";
 import Chatbot from "../ChatBot";
 import DownloadResume from "../DownloadResume";
 import Image from "next/image";
+import ResumeScreen from "./ResumeScreen";
 
 export const BentoGrid = ({
     className,
@@ -63,8 +64,6 @@ export const BentoGridItem = ({
     const [hoverOneActive, setHoverOneActive] = useState(false)
     const [hoverFourActive, setHoverFourActive] = useState(false)
     const cardFourRef = useRef(null)
-    const [toggleZoom, setToggleZoom] = useState(false)
-    const [toggleMouseInOut, setToggleMouseInOut] = useState(false)
 
     const handleCopy = () => {
         navigator.clipboard.writeText("csampath.work@gmail.com")
@@ -117,59 +116,6 @@ export const BentoGridItem = ({
 
     let skillsAll = skillRowOne.concat(skillRowTwo, skillRowThree)
 
-    const cvContainerZoomed = {
-        top: "0.00000001%",
-        left: "0.00000001%",
-        zIndex: "5",
-        opacity: 1,
-        height: "100%",
-        width: "100%",
-        overflow: "auto",
-        transform: "rotate3d(0.0000001,0.00000001,0.0000001, 0deg) scale(0.9999999)"
-    }
-    const cvContainerNormal = {
-        zIndex: "-1",
-        overflow: "hidden",
-        top: "calc(50% - 14.5%)",
-        left: "calc(50% + 17.5%)",
-        transform: "translate(-50%, -50%) rotate3d(4,5.9,4, 45deg) scale(0.295999999)",
-    }
-    const cvContainerHovered = {
-        top: "calc(50% - 13.5%)",
-        left: "calc(50% + 17.5%)",
-        zIndex: "-1",
-        transform: "translate(-50%, -50%) rotate3d(4,5.9,4, 45deg) scale(0.311111111)",
-        overflow: "hidden"
-    }
-
-    const cvOverlayStyles = {
-        zIndex: "2",
-        overflow: "hidden",
-        top: "calc(50% - 15%)",
-        left: "calc(50% + 17%)",
-        transform: "translate(-50%, -50%) rotate3d(4,5.9,4, 45deg) scale(0.3)",
-    }
-
-    const returnContainerStyles = () =>{
-        if(toggleZoom===true){
-            return cvContainerZoomed ;
-        }else if(toggleZoom===false && toggleMouseInOut ===false){
-            return cvContainerNormal;
-        }else if(toggleZoom===false && toggleMouseInOut === true){
-            return cvContainerHovered
-        }else{
-            return cvContainerZoomed
-        }
-    }
-
-    const onCVClick = (id:number) =>{
-        if(id!==1) return
-        setToggleZoom((val)=>!val)
-    }
-    const onCVMouseEnter = (id:number, status:boolean) =>{
-        if(id!==1) return
-        setToggleMouseInOut(status)
-    }
 
     return (
         <div
@@ -186,20 +132,7 @@ export const BentoGridItem = ({
             <div className={`${id === 6 && 'flex justify-center'} h-full`}>
                 <div className="w-full h-full absolute">
                     {img && (<img src={img} alt={img} id={`img-${id}`} className={cn(imgClassName, 'object-cover', 'object-center')}></img>)}
-                    {id=== 1 && (
-                            <>
-                            <div
-                            onClick={() => onCVClick(id ?? -1)} 
-                            className={`absolute duration-500 bg-transparent cursor-pointer md:w-[50rem] w-[25rem] md:h-[52rem] h-[35rem] `} style={returnContainerStyles()}>
-                                <img src="./cv-redacted-md-min.png" alt="./cv-redacted-md-min.png" className={`absolute ${toggleZoom===false && toggleMouseInOut===false && 'animate-faderMd'} `} />
-                            </div>
-                            <div
-                                onMouseEnter={() => onCVMouseEnter(id ?? -1, true)}  
-                                onMouseLeave={() => onCVMouseEnter(id ?? -1, false)}  
-                               onClick={() => onCVClick(id ?? -1)} 
-                             className={`absolute bg-transparent cursor-pointer md:w-[50rem] w-[25rem]  md:h-[49rem] h-[28rem] text-3xl md:text-7xl font-bold flex items-center justify-center text-white-100 pt-[40%] duration-500 ${!toggleZoom ? 'opacity-100' : 'opacity-0'}`} style={cvOverlayStyles}>Click Me 👆🏻</div>
-                            </>
-                    )}
+                    {id=== 1 && (<ResumeScreen/>)}
                 </div>
                 <div className={`${id}-t4t4t absolute right-0 -bottom-0 ${id===4 && " animate-fader "} ${id === 5 && 'w-full opacity-80 h-full'}`}>
                     {spareImg && (<img src={spareImg} alt={spareImg} className={'object-cover object-center w-full h-full'}></img>)}
