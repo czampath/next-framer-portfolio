@@ -1,10 +1,11 @@
 'use client';
 import React, { useState } from 'react'
+import Image from 'next/image';
 
 const ResumeScreen = () => {
   const [toggleZoom, setToggleZoom] = useState(false)
   const [toggleMouseInOut, setToggleMouseInOut] = useState(false)
-  
+
   const cvContainerZoomed = {
     top: "0.00000001%",
     left: "0.00000001%",
@@ -64,7 +65,13 @@ const ResumeScreen = () => {
       <div
         onClick={() => onCVClick()}
         className={`absolute duration-500 bg-transparent cursor-pointer md:w-[50rem] w-[25rem] md:h-[52rem] h-[35rem] `} style={returnContainerStyles()}>
-        <img src="./cv-redacted-md-min.png" alt="./cv-redacted-md-min.png" className={`absolute ${toggleZoom === false && toggleMouseInOut === false && 'animate-faderMd'} `} />
+        <Image 
+          layout="responsive"
+          width={792}
+          height={2048}
+          src="https://d1k2af8sw8x9is.cloudfront.net/resume-pdf-img/output.png" 
+          alt="Fetched from S3" 
+          className={`absolute ${toggleZoom === false && toggleMouseInOut === false && 'animate-faderMd'} `} />
       </div>
       <div
         onMouseEnter={() => onCVMouseEnter(true)}
