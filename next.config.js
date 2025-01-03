@@ -2,11 +2,17 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
+    minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'cz-git-anim.vercel.app',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'd1k2af8sw8x9is.cloudfront.net',
         pathname: '**',
       },
       {
