@@ -2,18 +2,15 @@ import React from 'react'
 import { FaFileDownload } from 'react-icons/fa'
 
 const handleDownload = () => {
-  let resumeName = 'Resume_of_Chathuranga_Sampath-v2024_1.19.pdf'
+  const s3Url = 'https://d1k2af8sw8x9is.cloudfront.net/resume-pdf-img/Resume_of_Chathuranga_Sampath.pdf';
   const link = document.createElement('a');
-  link.href = './'+ resumeName
-  link.download = resumeName
-  link.id = 'download-link'
-  document.body.appendChild(link)
-  link.click()
-  const linkToRemove = document.getElementById('download-link')
-  if (linkToRemove) {
-      document.body.removeChild(linkToRemove)
-  }
-}
+  link.href = s3Url;
+  link.download = 'Resume_of_Chathuranga_Sampath.pdf';
+  link.id = 'download-link';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 
 
 const DownloadResume = () => {
